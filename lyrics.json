@@ -1,0 +1,55 @@
+{
+  "_README": {
+    "purpose": "트랙별 가사 단편 (4~8줄, fair use 범위) - 가사 검색 SEO 유입용",
+    "schema": {
+      "<videoId>": {
+        "hook": "가장 캐치한 한 줄 (meta description + Twitter card에 사용)",
+        "lines": ["4줄", "에서", "8줄", "사이"],
+        "source": "official | manual | other",
+        "note": "선택 - verse/chorus 어느 부분인지 메모"
+      }
+    },
+    "legal_note": "전곡 가사 X / 16줄 미만 / 가사 출처가 official인 경우만 권장. DMCA 대응을 위해 source 필드 유지.",
+    "workflow": "vscode에서 이 JSON 열고 트랙 ID 검색해서 가사 추가 → python3 build.py 재실행"
+  },
+
+  "DQ1V74sfmGE": {
+    "hook": "",
+    "lines": [],
+    "source": "",
+    "note": "Back & Forth - 이을 Official"
+  },
+
+  "5dDHXX_69rY": {
+    "hook": "[가사 후크 - 곡 들으면서 가장 인상적인 한 줄을 여기에]",
+    "lines": [
+      "[1줄 - 후크 직전]",
+      "[2줄 - 후크]",
+      "[3줄 - 후크 직후]",
+      "[4줄 - 마무리]"
+    ],
+    "source": "placeholder",
+    "note": "강남역 9번 출구 앞에서 - CHAD BURGER. ⚠ 실제 가사로 교체 필요 (4-8줄, fair use)"
+  },
+
+  "bZuQ3kCQD1k": {
+    "hook": "",
+    "lines": [],
+    "source": "",
+    "note": "너의 인스타를 봐도 - CHAD BURGER"
+  },
+
+  "nq1XfDw5Cm0": {
+    "hook": "",
+    "lines": [],
+    "source": "",
+    "note": "이별의 출구 - 온시온 ONSEEON"
+  },
+
+  "YMOWBWU2Ny0": {
+    "hook": "",
+    "lines": [],
+    "source": "",
+    "note": "떠나갈래 - 김연"
+  }
+}

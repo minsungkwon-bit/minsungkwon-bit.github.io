@@ -1,0 +1,6 @@
+.cache_thumbs/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+node_modules/
