@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mr-slow.pages.dev/sitemap.xml
+Sitemap: https://minsungkwon-bit.github.io/sitemap.xml

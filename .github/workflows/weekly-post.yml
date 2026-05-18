@@ -30,7 +30,7 @@ jobs:
 
       - name: Generate new weekly post + rebuild
         env:
-          SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'https://mr-slow.pages.dev' }}
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'https://minsungkwon-bit.github.io' }}
         run: |
           python3 build.py --new-post --domain "$SITE_DOMAIN"
 

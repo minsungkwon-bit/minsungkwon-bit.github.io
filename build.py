@@ -730,7 +730,7 @@ def add_new_weekly_post(out: Path, tracks: list) -> str:
 def main():
     global FORCE_OG
     ap = argparse.ArgumentParser()
-    ap.add_argument("--domain", default="https://mr-slow.pages.dev")
+    ap.add_argument("--domain", default="https://minsungkwon-bit.github.io")
     ap.add_argument("--out", default=str(ROOT))
     ap.add_argument("--new-post", action="store_true",
                     help="이번 주 신규 포스트 생성 후 빌드")
