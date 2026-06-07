@@ -11,7 +11,7 @@
 <meta property="og:type" content="music.song">
 <meta property="og:title" content="이 밤이 지나도 (feat. TimeFeveR) — 김연 -Yyeon | from Mr. Slow (Korean Indie Playlist)">
 <meta property="og:description" content="&quot;이 밤이 지나도 (feat. TimeFeveR)&quot; by 김연 -Yyeon. 한국 인디·감성·슬로우 플레이리스트 「Mr. Slow」에서 듣기.">
-<meta property="og:image" content="https://minsungkwon-bit.github.io/og/track-2LiNtCbALYE.png">
+<meta property="og:image" content="https://i.ytimg.com/vi/2LiNtCbALYE/maxresdefault.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="이 밤이 지나도 (feat. TimeFeveR) — 김연 -Yyeon | from Mr. Slow (Korean Indie Playlist)">
 <meta name="twitter:description" content="&quot;이 밤이 지나도 (feat. TimeFeveR)&quot; by 김연 -Yyeon. 한국 인디·감성·슬로우 플레이리스트 「Mr. Slow」에서 듣기.">
-<meta name="twitter:image" content="https://minsungkwon-bit.github.io/og/track-2LiNtCbALYE.png">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/2LiNtCbALYE/maxresdefault.jpg">
 <link rel="preconnect" href="https://www.youtube.com">
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="dns-prefetch" href="https://music.youtube.com">
@@ -129,6 +129,222 @@ footer a{color:var(--muted)}
   </p>
 </section>
 
+
+
+
+<style>
+.lyric-line:hover {
+  color: var(--accent) !important;
+}
+.style-btn.active {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 8px rgba(255,0,51,0.3);
+}
+</style>
+
+<section id="card-generator-section" style="background:var(--bg-2);padding:24px;border-radius:12px;border:1px solid var(--border);margin-top:40px;">
+  <h2 style="margin-bottom:8px;">🎨 감성 가사 카드 만들기</h2>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">
+    가사를 선택하거나 직접 작성한 카드를 다운로드하여 인스타그램 스토리 등 SNS에 공유해 보세요.
+  </p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:24px;">
+    <!-- 왼쪽: 캔버스 프리뷰 -->
+    <div style="flex:1;min-width:280px;display:flex;justify-content:center;align-items:center;background:var(--bg);border-radius:8px;padding:16px;border:1px solid var(--border);">
+      <canvas id="cardCanvas" width="1080" height="1080" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.5);aspect-ratio:1/1;"></canvas>
+    </div>
+
+    <!-- 오른쪽: 컨트롤러 -->
+    <div style="flex:1.2;min-width:280px;display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <label style="display:block;font-size:13px;color:var(--muted);margin-bottom:6px;">카드 문구 입력 (줄바꿈 가능)</label>
+        <textarea id="cardText" rows="4" style="width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:6px;padding:12px;font-size:15px;font-family:inherit;resize:none;outline:none;" placeholder="카드에 적을 문구를 입력해 주세요."></textarea>
+      </div>
+
+      <div>
+        <label style="display:block;font-size:13px;color:var(--muted);margin-bottom:8px;">배경 스타일 선택</label>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(75px, 1fr));gap:8px;">
+          <button class="style-btn active" data-style="midnight" style="height:36px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(135deg,#131326,#070710);color:#fff;cursor:pointer;font-size:12px;font-weight:bold;outline:none;">Midnight</button>
+          <button class="style-btn" data-style="sunset" style="height:36px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(135deg,#2c1a30,#0f0a15);color:#fff;cursor:pointer;font-size:12px;font-weight:bold;outline:none;">Sunset</button>
+          <button class="style-btn" data-style="forest" style="height:36px;border-radius:6px;border:1px solid var(--border);background:linear-gradient(135deg,#0e201b,#050a08);color:#fff;cursor:pointer;font-size:12px;font-weight:bold;outline:none;">Forest</button>
+          <button class="style-btn" data-style="classic" style="height:36px;border-radius:6px;border:1px solid var(--border);background:#070707;color:#fff;cursor:pointer;font-size:12px;font-weight:bold;outline:none;">Classic</button>
+        </div>
+      </div>
+
+      <div style="margin-top:auto;padding-top:12px;">
+        <button id="downloadCardBtn" class="cta" style="width:100%;justify-content:center;padding:14px;font-size:16px;cursor:pointer;border:0;">
+          📥 이미지 다운로드 (.png)
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function selectLyricLine(el) {
+  const text = el.innerText.trim();
+  const textarea = document.getElementById('cardText');
+  if (textarea) {
+    textarea.value = text;
+    textarea.dispatchEvent(new Event('input'));
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('cardCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const textarea = document.getElementById('cardText');
+  const styleBtns = document.querySelectorAll('.style-btn');
+  const downloadBtn = document.getElementById('downloadCardBtn');
+
+  const title = "\uc774 \ubc24\uc774 \uc9c0\ub098\ub3c4 (feat. TimeFeveR)";
+  const artist = "\uae40\uc5f0 -Yyeon";
+  const defaultHook = "";
+  
+  textarea.value = defaultHook || `내 마음에 들어온 새벽 감성 곡\n\n🎧 ${title} - ${artist}`;
+
+  let currentStyle = 'midnight';
+
+  const styles = {
+    midnight: {
+      bg: (ctx) => {
+        const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
+        grad.addColorStop(0, '#131326');
+        grad.addColorStop(1, '#070710');
+        return grad;
+      },
+      textColor: '#ffffff'
+    },
+    sunset: {
+      bg: (ctx) => {
+        const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
+        grad.addColorStop(0, '#2c1a30');
+        grad.addColorStop(1, '#0f0a15');
+        return grad;
+      },
+      textColor: '#ffffff'
+    },
+    forest: {
+      bg: (ctx) => {
+        const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
+        grad.addColorStop(0, '#0e201b');
+        grad.addColorStop(1, '#050a08');
+        return grad;
+      },
+      textColor: '#ffffff'
+    },
+    classic: {
+      bg: () => '#070707',
+      textColor: '#ffffff'
+    }
+  };
+
+  function drawCard() {
+    const style = styles[currentStyle];
+    
+    // 1. Draw Background
+    ctx.fillStyle = typeof style.bg === 'function' ? style.bg(ctx) : style.bg;
+    ctx.fillRect(0, 0, 1080, 1080);
+
+    // 2. Draw Elegant Border Line
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(60, 60, 1080 - 120, 1080 - 120);
+
+    // 3. Draw Header Logo
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText("Mr. Slow" + ' PLAYLIST', 540, 120);
+
+    // 4. Draw Center Lyrics / Text
+    const rawText = textarea.value || '';
+    ctx.fillStyle = style.textColor;
+    
+    const lines = wrapText(rawText, 880);
+    const fontSize = lines.length > 5 ? 38 : 46;
+    const lineHeight = fontSize * 1.6;
+    ctx.font = `500 ${fontSize}px system-ui, -apple-system, sans-serif`;
+    
+    const totalHeight = lines.length * lineHeight;
+    let startY = 540 - (totalHeight / 2) + (fontSize / 2);
+
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], 540, startY + (i * lineHeight));
+    }
+
+    // 5. Draw Bottom Song Info
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.font = 'bold 28px system-ui, -apple-system, sans-serif';
+    ctx.fillText(`${title}`, 540, 910);
+    
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.font = '22px system-ui, -apple-system, sans-serif';
+    ctx.fillText(`${artist}`, 540, 950);
+
+    // 6. Draw Bottom URL
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+    ctx.font = '16px system-ui, -apple-system, sans-serif';
+    ctx.fillText("minsungkwon-bit.github.io", 540, 1000);
+  }
+
+  function wrapText(text, maxWidth) {
+    const paragraphs = text.split('\n');
+    const lines = [];
+    
+    ctx.font = '46px system-ui, -apple-system, sans-serif';
+
+    for (let p = 0; p < paragraphs.length; p++) {
+      const paragraph = paragraphs[p];
+      if (paragraph.trim() === '') {
+        lines.push('');
+        continue;
+      }
+      
+      const words = paragraph.split(' ');
+      let currentLine = '';
+
+      for (let w = 0; w < words.length; w++) {
+        const testLine = currentLine ? currentLine + ' ' + words[w] : words[w];
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && w > 0) {
+          lines.push(currentLine);
+          currentLine = words[w];
+        } else {
+          currentLine = testLine;
+        }
+      }
+      lines.push(currentLine);
+    }
+    return lines;
+  }
+
+  textarea.addEventListener('input', drawCard);
+  
+  styleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      styleBtns.forEach(b => {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      currentStyle = btn.getAttribute('data-style');
+      drawCard();
+    });
+  });
+
+  downloadBtn.addEventListener('click', () => {
+    const dataUrl = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    const safeTitle = title.replace(/[^a-zA-Z0-9가-힣\s]/g, '').trim();
+    link.download = `card-${safeTitle}.png`;
+    link.href = dataUrl;
+    link.click();
+  });
+
+  setTimeout(drawCard, 200);
+});
+</script>
 
 
 
