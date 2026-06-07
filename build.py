@@ -37,14 +37,14 @@ except ImportError:
 
 ROOT = Path(__file__).parent
 FORCE_OG = False  # main()에서 --force-og 시 True
-PLAYLIST_ID = "PLRaEryL4ESyhaPbFvdNFaKfI0PO-1JBiJ"
+PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
 YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
 YT_NORMAL_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
 EMBED_URL = f"https://www.youtube.com/embed/videoseries?list={PLAYLIST_ID}"
 
 PLAYLIST_NAME = "Mr. Slow"
 TAGLINE_EN = "Korean pop vibe in Seoul right now"
-TAGLINE_KO = "지금 서울의 K-인디·감성·슬로우 92곡"
+TAGLINE_KO = "지금 서울의 K-인디·감성·슬로우 {count}곡"
 OWNER = "Mr. Slow"
 OWNER_HANDLE = "@alexiskwon"
 OWNER_URL = "https://www.youtube.com/@alexiskwon"
@@ -269,16 +269,11 @@ def make_schema_playlist(tracks: list, name: str, description: str, canonical: s
 
 def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> str:
     canonical = site_url.rstrip("/") + "/"
-    cover = f"https://i.ytimg.com/vi/{tracks[0]['videoId']}/maxresdefault.jpg"
+    cover = "weekly_cover.png"
     title = f"{PLAYLIST_NAME} — 한국 인디·감성 슬로우 플레이리스트 {len(tracks)}곡 | K-Indie 2026"
     desc = f"{TAGLINE_KO}. CHAD BURGER, 온시온, 시즈더데이, 김연, Crush, NELL 등 {len(tracks)}곡. YouTube Music에서 무료 재생."
 
-    og_url = gen_og(
-        slug="home", video_id=tracks[0]["videoId"],
-        h1=PLAYLIST_NAME, tagline_en=TAGLINE_EN, tagline_ko=TAGLINE_KO,
-        meta_right=f"{len(tracks)} tracks · Seoul Vibes",
-        out_root=out_root, site_url=site_url,
-    )
+    og_url = f"{site_url.rstrip('/')}/weekly_cover.png"
 
     head = render_head(
         title=title, description=desc, keywords=ROOT_KEYWORDS,
@@ -765,10 +760,10 @@ window.addEventListener('DOMContentLoaded', () => {{
 <section class="intro">
   <p>
     <strong>{safe(track['title'])}</strong>은 <strong>{safe(track['artist'])}</strong>의 곡으로,
-    한국 인디·감성·슬로우 큐레이션 플레이리스트 「{PLAYLIST_NAME}」에 수록된 92곡 중 {idx + 1}번째 트랙입니다.
+    한국 인디·감성·슬로우 큐레이션 플레이리스트 「{PLAYLIST_NAME}」에 수록된 {len(tracks)}곡 중 {idx + 1}번째 트랙입니다.
   </p>
   <p>
-    <a href="{YT_MUSIC_URL}" rel="noopener" target="_blank" style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none">전체 92곡 플레이리스트 듣기 →</a>
+    <a href="{YT_MUSIC_URL}" rel="noopener" target="_blank" style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none">전체 {len(tracks)}곡 플레이리스트 듣기 →</a>
   </p>
 </section>
 
@@ -846,7 +841,7 @@ def render_weekly_post(post_slug: str, post_date: datetime, featured_tracks: lis
 
 <section style="margin-top:60px">
   <h2>전체 플레이리스트 듣기</h2>
-  <p style="margin-bottom:24px"><a class="cta" href="{YT_MUSIC_URL}" rel="noopener" target="_blank">▶ YouTube Music에서 92곡 전체 듣기</a></p>
+  <p style="margin-bottom:24px"><a class="cta" href="{YT_MUSIC_URL}" rel="noopener" target="_blank">▶ YouTube Music에서 {len(all_tracks)}곡 전체 듣기</a></p>
   {render_mood_grid(moods)}
 </section>
 """
@@ -970,6 +965,9 @@ def main():
 
     tracks = json.loads((ROOT / "tracks.json").read_text(encoding="utf-8"))
     moods = json.loads((ROOT / "moods.json").read_text(encoding="utf-8"))
+
+    global TAGLINE_KO
+    TAGLINE_KO = TAGLINE_KO.format(count=len(tracks))
 
     # lyrics.json (선택) - 없거나 비어있어도 동작
     lyrics_db = {}
