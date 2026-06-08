@@ -1,10 +1,10 @@
 name: Playlist Sync
 
-# 10분마다 공개 플레이리스트 → tracks.json 동기화 → 변경 시 사이트 재빌드 & push
+# 매일 아침 9시 KST(00:00 UTC) 공개 플레이리스트 → tracks.json 동기화 → 변경 시 사이트 재빌드 & push
 # 수동 실행: Actions 탭 → "Run workflow"
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 # weekly-post.yml 등 사이트에 쓰는 다른 워크플로와 동시 실행 방지
