@@ -135,7 +135,7 @@ def main():
 
     tracks_file.write_text(
         json.dumps(new, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"[sync] tracks.json 갱신 완료 (신규 {len(added)} / 삭제 {len(removed)} → 총 {len(new)})")
+    print(f"[sync] {pl['tracks']} 갱신 완료 (신규 {len(added)} / 삭제 {len(removed)} → 총 {len(new)})")
     sys.exit(10)
 
 
