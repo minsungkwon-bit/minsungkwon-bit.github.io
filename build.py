@@ -1013,9 +1013,26 @@ def main():
         all_urls.append((f"/tracks/{t['videoId']}/", "0.7", "monthly"))
 
     # 4) 주간 포스트
+    import random as _random
+    by_id = {t["videoId"]: t for t in tracks}
     for p in posts:
         post_date = datetime.fromisoformat(p["date"])
-        featured = [t for t in tracks if t["videoId"] in p["featured_video_ids"]]
+        # 추천곡 중 현재 트랙에 남아있는 것만 (순서 유지, 중복 제거)
+        featured, seen_f = [], set()
+        for vid in p["featured_video_ids"]:
+            if vid in by_id and vid not in seen_f:
+                seen_f.add(vid)
+                featured.append(by_id[vid])
+        # 삭제로 5곡 미만이면 결정론적으로 보충 (slug 시드)
+        if len(featured) < 5 and tracks:
+            rng = _random.Random(p["slug"])
+            pool = [t for t in tracks if t["videoId"] not in seen_f]
+            rng.shuffle(pool)
+            for t in pool:
+                if len(featured) >= 5:
+                    break
+                seen_f.add(t["videoId"])
+                featured.append(t)
         write(out / "posts" / p["slug"] / "index.html",
               render_weekly_post(p["slug"], post_date, featured, tracks, moods, args.domain, out))
         all_urls.append((f"/posts/{p['slug']}/", "0.8", "yearly"))
