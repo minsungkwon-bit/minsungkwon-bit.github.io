@@ -50,6 +50,7 @@ jobs:
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'https://minsungkwon-bit.github.io' }}
         run: |
           set -e
+          python3 fetch_video_meta.py   # 신규 트랙 업로드 날짜/길이 보강 (누락분만)
           python3 build.py --domain "$SITE_DOMAIN"
 
           # tracks.json에 없는 트랙 페이지/OG 정리
