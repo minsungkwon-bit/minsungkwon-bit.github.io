@@ -496,15 +496,23 @@ def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str
     canonical = f"{site_url.rstrip('/')}/tracks/{vid}/"
     cover = f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"
     thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
-    title_seo = f"{track['title']} — {track['artist']} | from {PLAYLIST_NAME} (Korean Indie Playlist)"
 
     # 가사 데이터 (있으면 description + 본문에 활용)
     lyrics = (lyrics_db or {}).get(vid, {}) if lyrics_db else {}
     has_lyrics = lyrics.get("hook") or lyrics.get("lines")
-    if has_lyrics and lyrics.get("hook"):
-        desc = f'"{lyrics["hook"]}" — {track["artist"]}「{track["title"]}」. {PLAYLIST_NAME} 플레이리스트 수록.'
+
+    # Title: 검색의도 키워드(곡명·아티스트·가사/듣기) 앞배치 → SERP CTR↑
+    if has_lyrics:
+        title_seo = f"{track['title']} - {track['artist']} 가사·듣기 | 한국 인디 플레이리스트 {PLAYLIST_NAME}"
     else:
-        desc = f'"{track["title"]}" by {track["artist"]}. 한국 인디·감성·슬로우 플레이리스트 「{PLAYLIST_NAME}」에서 듣기.'
+        title_seo = f"{track['title']} - {track['artist']} 듣기 | 한국 인디·감성 플레이리스트 {PLAYLIST_NAME}"
+
+    if has_lyrics and lyrics.get("hook"):
+        desc = (f'"{lyrics["hook"]}" — {track["artist"]}「{track["title"]}」 가사. '
+                f'{PLAYLIST_NAME} 한국 인디·감성 플레이리스트에서 무료로 듣기.')
+    else:
+        desc = (f"{track['artist']}의 '{track['title']}'을(를) {PLAYLIST_NAME} 한국 인디·감성·슬로우 "
+                f"플레이리스트에서 무료로 듣기. 비슷한 K-인디 {len(tracks)}곡 추천.")
 
     og_url = gen_og(
         slug=f"track-{vid}", video_id=vid,
