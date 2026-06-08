@@ -240,9 +240,8 @@ def gen_og(*, slug: str, video_id: str, h1: str, tagline_en: str,
         return fallback_url
 
 
-def make_schema_playlist(tracks: list, name: str, description: str, canonical: str) -> str:
-    schema = {
-        "@context": "https://schema.org",
+def schema_playlist_obj(tracks: list, name: str, description: str, canonical: str) -> dict:
+    return {
         "@type": "MusicPlaylist",
         "name": name,
         "description": description,
@@ -260,7 +259,59 @@ def make_schema_playlist(tracks: list, name: str, description: str, canonical: s
             for t in tracks
         ],
     }
-    return json.dumps(schema, ensure_ascii=False)
+
+
+def schema_breadcrumb(items: list) -> dict:
+    """items: [(name, url_or_None)] — 마지막 항목은 url=None (현재 페이지)."""
+    return {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": name,
+             **({"item": url} if url else {})}
+            for i, (name, url) in enumerate(items)
+        ],
+    }
+
+
+def schema_faq(qa: list) -> dict:
+    """qa: [(question, answer)]."""
+    return {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in qa
+        ],
+    }
+
+
+def schema_video(track: dict, embed_url: str, thumb: str, description: str) -> dict:
+    # uploadDate는 정확값이 없어 생략 (영상 리치결과는 날짜 보강 시 활성화)
+    return {
+        "@type": "VideoObject",
+        "name": f"{track['title']} — {track['artist']}",
+        "description": description,
+        "thumbnailUrl": thumb,
+        "embedUrl": embed_url,
+    }
+
+
+def ld_graph(*objs) -> str:
+    """여러 schema 객체를 하나의 JSON-LD @graph로 직렬화."""
+    items = [o for o in objs if o]
+    return json.dumps({"@context": "https://schema.org", "@graph": items},
+                      ensure_ascii=False)
+
+
+def render_faq_html(qa: list) -> str:
+    """FAQ 스키마와 동일한 Q&A를 본문에도 노출 (리치결과 요건)."""
+    items = "".join(
+        f'<div style="margin-bottom:18px">'
+        f'<h3 style="font-size:16px;margin-bottom:6px;color:#fff">{safe(q)}</h3>'
+        f'<p style="color:#bbb;font-size:14px">{safe(a)}</p></div>'
+        for q, a in qa
+    )
+    return f'<section class="intro"><h2>자주 묻는 질문 (FAQ)</h2>{items}</section>'
 
 
 # ============================================================
@@ -275,10 +326,25 @@ def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> st
 
     og_url = f"{site_url.rstrip('/')}/weekly_cover.png"
 
+    home_faq = [
+        (f"{PLAYLIST_NAME} 플레이리스트는 어떤 음악인가요?",
+         f"2026년 현재 서울의 인디·감성·슬로우 한국 음악 {len(tracks)}곡을 모은 큐레이션입니다. "
+         f"CHAD BURGER, 온시온, 시즈더데이, 김연, Crush, NELL 등이 수록되어 있습니다."),
+        ("무료로 들을 수 있나요?",
+         "네. YouTube Music과 YouTube에서 전체 플레이리스트를 무료로 재생할 수 있습니다."),
+        ("어떤 순간에 듣기 좋나요?",
+         "새벽 운전, 늦은 밤 카페, 비 오는 창가, 이별 직후처럼 차분하고 감성적인 순간에 "
+         "어울리는 슬로우 K-pop 플레이리스트입니다."),
+        ("곡은 얼마나 자주 업데이트되나요?",
+         "매주 새로운 한국 인디·감성 트랙을 추가하고 추천 포스트를 발행합니다."),
+    ]
     head = render_head(
         title=title, description=desc, keywords=ROOT_KEYWORDS,
         canonical=canonical, og_image=og_url,
-        schema_json=make_schema_playlist(tracks, PLAYLIST_NAME, desc, canonical),
+        schema_json=ld_graph(
+            schema_playlist_obj(tracks, PLAYLIST_NAME, desc, canonical),
+            schema_faq(home_faq),
+        ),
     )
 
     body = f"""
@@ -324,6 +390,8 @@ def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> st
   <h2>전체 트랙리스트 ({len(tracks)}곡)</h2>
   {render_tracklist(tracks)}
 </section>
+
+{render_faq_html(home_faq)}
 """
     return head + body + render_footer()
 
@@ -357,14 +425,25 @@ def render_mood(slug: str, mood: dict, tracks: list, moods: dict, site_url: str,
         display_tracks = tracks
         highlight_section = ""
 
+    home_url = site_url.rstrip("/") + "/"
+    mood_faq = [
+        (f"{mood['h1']} 플레이리스트는 어떤 음악인가요?", mood["intro_ko"]),
+        ("무료로 들을 수 있나요?",
+         "네. YouTube Music과 YouTube에서 무료로 재생할 수 있습니다."),
+        (f"{mood['h1']} 무드에 몇 곡이 있나요?",
+         f"{PLAYLIST_NAME} 플레이리스트의 {len(tracks)}곡을 이 무드 관점으로 큐레이션했습니다."),
+    ]
     head = render_head(
         title=mood["seo_title"],
         description=mood["seo_description"],
         keywords=mood["keywords"],
         canonical=canonical,
         og_image=og_url,
-        schema_json=make_schema_playlist(
-            tracks, f"{PLAYLIST_NAME} — {mood['h1']}", mood["seo_description"], canonical,
+        schema_json=ld_graph(
+            schema_playlist_obj(
+                tracks, f"{PLAYLIST_NAME} — {mood['h1']}", mood["seo_description"], canonical),
+            schema_breadcrumb([(PLAYLIST_NAME, home_url), (mood["h1"], None)]),
+            schema_faq(mood_faq),
         ),
     )
 
@@ -405,6 +484,8 @@ def render_mood(slug: str, mood: dict, tracks: list, moods: dict, site_url: str,
   <h2>트랙리스트</h2>
   {render_tracklist(display_tracks)}
 </section>
+
+{render_faq_html(mood_faq)}
 """
     return head + body + render_footer()
 
@@ -434,7 +515,6 @@ def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str
     )
 
     schema = {
-        "@context": "https://schema.org",
         "@type": "MusicRecording",
         "name": track["title"],
         "byArtist": {"@type": "MusicGroup", "name": track["artist"]},
@@ -457,11 +537,21 @@ def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str
             "text": " / ".join(lyrics.get("lines", [])) or lyrics.get("hook", ""),
         }
 
+    home_url = site_url.rstrip("/") + "/"
+    breadcrumb = schema_breadcrumb([
+        (PLAYLIST_NAME, home_url),
+        ("Tracks", home_url + "#tracks"),
+        (track["title"], None),
+    ])
+    video = schema_video(
+        track, embed_url=f"https://www.youtube.com/embed/{vid}",
+        thumb=cover, description=desc,
+    )
     head = render_head(
         title=title_seo, description=desc,
         keywords=kw,
         canonical=canonical, og_image=og_url, og_type="music.song",
-        schema_json=json.dumps(schema, ensure_ascii=False),
+        schema_json=ld_graph(schema, breadcrumb, video),
     )
 
     # 이전/다음 트랙 (재생 흐름 유지)
