@@ -54,6 +54,7 @@ SITES = [
         "tracks_file": "tracks.json",
         "moods_file": "moods.json",
         "has_posts": True,
+        "shuffle": False,             # 소스 순서 유지
         "name": "Mr. Slow",
         "tagline_en": "Korean pop vibe in Seoul right now",
         "tagline_ko": "지금 서울의 K-인디·감성·슬로우 {n}곡",
@@ -88,6 +89,7 @@ SITES = [
         "tracks_file": "tracks_low.json",
         "moods_file": None,        # 무드 페이지 없음
         "has_posts": False,        # 주간 포스트 없음
+        "shuffle": True,           # 매 동기화마다 순서 자체 셔플
         "name": "Mr. Low",
         "tagline_en": "Cozy indie pop & mellow vibes",
         "tagline_ko": "포근한 인디 팝·멜로우 무드 {n}곡",

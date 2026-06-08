@@ -19,15 +19,14 @@ import re
 import sys
 from pathlib import Path
 
+import random
+
 from yt_dlp import YoutubeDL
 
-ROOT = Path(__file__).parent
+from build import SITES  # 단일 설정 소스 (playlist_id / tracks_file / shuffle)
 
-# 동기화 대상 플레이리스트 (자매 플레이리스트 지원)
-PLAYLISTS = {
-    "slow": {"id": "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v", "tracks": "tracks.json"},
-    "low":  {"id": "PLRaEryL4ESyi3NSM-3oGgGp2zHlILTU1d", "tracks": "tracks_low.json"},
-}
+ROOT = Path(__file__).parent
+SITE_BY_KEY = {c["key"]: c for c in SITES}
 DEFAULT_KEY = "slow"
 
 
@@ -76,15 +75,17 @@ def load_existing(tracks_file: Path) -> list:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--playlist", default=DEFAULT_KEY, choices=list(PLAYLISTS),
+    ap.add_argument("--playlist", default=DEFAULT_KEY, choices=list(SITE_BY_KEY),
                     help="동기화할 플레이리스트 키 (slow=Mr.Slow, low=Mr.Low)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    pl = PLAYLISTS[args.playlist]
-    playlist_id = pl["id"]
-    tracks_file = ROOT / pl["tracks"]
-    print(f"[sync] 대상: {args.playlist} ({playlist_id}) → {pl['tracks']}")
+    cfg = SITE_BY_KEY[args.playlist]
+    playlist_id = cfg["playlist_id"]
+    tracks_file = ROOT / cfg["tracks_file"]
+    shuffle = cfg.get("shuffle", False)
+    print(f"[sync] 대상: {args.playlist} ({playlist_id}) → {cfg['tracks_file']}"
+          f"{' [shuffle]' if shuffle else ''}")
 
     try:
         live = fetch_live(playlist_id)
@@ -93,7 +94,7 @@ def main():
         sys.exit(1)
 
     if not live:
-        print(f"✖ 트랙 0개 — 안전을 위해 {pl['tracks']} 덮어쓰지 않음", file=sys.stderr)
+        print(f"✖ 트랙 0개 — 안전을 위해 {cfg['tracks_file']} 덮어쓰지 않음", file=sys.stderr)
         sys.exit(1)
 
     old = load_existing(tracks_file)
@@ -123,19 +124,27 @@ def main():
     for t in removed:
         print(f"   - {t.get('artist')} - {t.get('title')}  ({t['videoId']})")
 
-    changed = (added or removed or
-               [t["videoId"] for t in old] != [t["videoId"] for t in new])
+    set_changed = bool(added or removed)
+    order_changed = [t["videoId"] for t in old] != [t["videoId"] for t in new]
+
+    # 셔플 사이트: 매 실행마다 순서를 새로 섞어 리프레시 (집합 유지)
+    if shuffle:
+        random.shuffle(new)
+
+    changed = set_changed or order_changed or shuffle
     if not changed:
         print("[sync] 변경 없음")
         sys.exit(0)
 
     if args.dry_run:
-        print(f"[sync] (dry-run) 신규 {len(added)} / 삭제 {len(removed)} — 파일 미수정")
+        extra = " / 셔플" if shuffle else ""
+        print(f"[sync] (dry-run) 신규 {len(added)} / 삭제 {len(removed)}{extra} — 파일 미수정")
         sys.exit(10)
 
     tracks_file.write_text(
         json.dumps(new, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"[sync] {pl['tracks']} 갱신 완료 (신규 {len(added)} / 삭제 {len(removed)} → 총 {len(new)})")
+    print(f"[sync] {cfg['tracks_file']} 갱신 완료 "
+          f"(신규 {len(added)} / 삭제 {len(removed)}{' / 셔플' if shuffle else ''} → 총 {len(new)})")
     sys.exit(10)
 
 
