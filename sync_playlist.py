@@ -19,15 +19,12 @@ import re
 import sys
 from pathlib import Path
 
-import random
-
 from yt_dlp import YoutubeDL
 
-from build import SITES  # 단일 설정 소스 (playlist_id / tracks_file / shuffle)
-
 ROOT = Path(__file__).parent
-SITE_BY_KEY = {c["key"]: c for c in SITES}
-DEFAULT_KEY = "slow"
+PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
+PLAYLIST_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
+TRACKS_FILE = ROOT / "tracks.json"
 
 
 def clean_artist(channel: str) -> str:
@@ -38,16 +35,15 @@ def clean_artist(channel: str) -> str:
     return a.strip() or "Unknown"
 
 
-def fetch_live(playlist_id: str) -> list:
+def fetch_live() -> list:
     """라이브 플레이리스트를 {videoId,title,channel} 순서대로 반환."""
-    url = f"https://www.youtube.com/playlist?list={playlist_id}"
     opts = {
         "quiet": True, "no_warnings": True,
         "extract_flat": True, "skip_download": True,
         "ignoreerrors": True,
     }
     with YoutubeDL(opts) as y:
-        info = y.extract_info(url, download=False)
+        info = y.extract_info(PLAYLIST_URL, download=False)
     out, seen = [], set()
     for e in (info or {}).get("entries", []):
         if not e:
@@ -67,37 +63,28 @@ def fetch_live(playlist_id: str) -> list:
     return out
 
 
-def load_existing(tracks_file: Path) -> list:
-    if tracks_file.exists():
-        return json.loads(tracks_file.read_text(encoding="utf-8"))
+def load_existing() -> list:
+    if TRACKS_FILE.exists():
+        return json.loads(TRACKS_FILE.read_text(encoding="utf-8"))
     return []
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--playlist", default=DEFAULT_KEY, choices=list(SITE_BY_KEY),
-                    help="동기화할 플레이리스트 키 (slow=Mr.Slow, low=Mr.Low)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    cfg = SITE_BY_KEY[args.playlist]
-    playlist_id = cfg["playlist_id"]
-    tracks_file = ROOT / cfg["tracks_file"]
-    shuffle = cfg.get("shuffle", False)
-    print(f"[sync] 대상: {args.playlist} ({playlist_id}) → {cfg['tracks_file']}"
-          f"{' [shuffle]' if shuffle else ''}")
-
     try:
-        live = fetch_live(playlist_id)
+        live = fetch_live()
     except Exception as e:
         print(f"✖ 플레이리스트 가져오기 실패: {e}", file=sys.stderr)
         sys.exit(1)
 
     if not live:
-        print(f"✖ 트랙 0개 — 안전을 위해 {cfg['tracks_file']} 덮어쓰지 않음", file=sys.stderr)
+        print("✖ 트랙 0개 — 안전을 위해 tracks.json 덮어쓰지 않음", file=sys.stderr)
         sys.exit(1)
 
-    old = load_existing(tracks_file)
+    old = load_existing()
     old_by_id = {t["videoId"]: t for t in old}
 
     # 라이브 순서대로 재구성: 기존 정제 메타 보존, 신규는 채널명 정리
@@ -124,27 +111,19 @@ def main():
     for t in removed:
         print(f"   - {t.get('artist')} - {t.get('title')}  ({t['videoId']})")
 
-    set_changed = bool(added or removed)
-    order_changed = [t["videoId"] for t in old] != [t["videoId"] for t in new]
-
-    # 셔플 사이트: 매 실행마다 순서를 새로 섞어 리프레시 (집합 유지)
-    if shuffle:
-        random.shuffle(new)
-
-    changed = set_changed or order_changed or shuffle
+    changed = (added or removed or
+               [t["videoId"] for t in old] != [t["videoId"] for t in new])
     if not changed:
         print("[sync] 변경 없음")
         sys.exit(0)
 
     if args.dry_run:
-        extra = " / 셔플" if shuffle else ""
-        print(f"[sync] (dry-run) 신규 {len(added)} / 삭제 {len(removed)}{extra} — 파일 미수정")
+        print(f"[sync] (dry-run) 신규 {len(added)} / 삭제 {len(removed)} — 파일 미수정")
         sys.exit(10)
 
-    tracks_file.write_text(
+    TRACKS_FILE.write_text(
         json.dumps(new, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"[sync] {cfg['tracks_file']} 갱신 완료 "
-          f"(신규 {len(added)} / 삭제 {len(removed)}{' / 셔플' if shuffle else ''} → 총 {len(new)})")
+    print(f"[sync] tracks.json 갱신 완료 (신규 {len(added)} / 삭제 {len(removed)} → 총 {len(new)})")
     sys.exit(10)
 
 

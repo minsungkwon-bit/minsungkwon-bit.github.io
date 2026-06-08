@@ -1,25 +1,19 @@
 #!/usr/bin/env bash
-# 1회 동기화 사이클: sync → (변경 시) build(전 사이트) → 고아 정리 → commit → push
-# 사용: ./run_sync.sh [--playlist slow|low] [--no-push]
+# 1회 동기화 사이클: sync → (변경 시) build → 고아 트랙 페이지 정리 → commit → push
+# 사용: ./run_sync.sh [--no-push]
 set -uo pipefail
 
 cd "$(dirname "$0")"
 PY=".venv/bin/python"
 DOMAIN="https://minsungkwon-bit.github.io"
-PLAYLIST="slow"
 PUSH=1
-for a in "$@"; do
-  case "$a" in
-    --no-push) PUSH=0 ;;
-    slow|low) PLAYLIST="$a" ;;
-  esac
-done
+[[ "${1:-}" == "--no-push" ]] && PUSH=0
 
 ts() { date -u +'%Y-%m-%dT%H:%M:%SZ'; }
 log() { echo "[$(ts)] $*"; }
 
-log "▶ sync 시작 (playlist=$PLAYLIST)"
-"$PY" sync_playlist.py --playlist "$PLAYLIST"
+log "▶ sync 시작"
+"$PY" sync_playlist.py
 RC=$?
 
 if [[ $RC -eq 0 ]]; then
@@ -28,11 +22,25 @@ elif [[ $RC -ne 10 ]]; then
   log "✖ sync 에러(rc=$RC) — 빌드 중단"; exit 1
 fi
 
-log "변경 감지 → 빌드(전 사이트)"
+log "변경 감지 → 빌드"
 "$PY" build.py --domain "$DOMAIN" || { log "✖ build 실패"; exit 1; }
 
+# 고아 트랙 페이지/OG 정리 (tracks.json에 없는 videoId 폴더 제거)
 log "고아 트랙 페이지 정리"
-"$PY" prune_orphans.py || { log "✖ prune 실패"; exit 1; }
+"$PY" - <<'PY'
+import json, shutil
+from pathlib import Path
+ids = {t["videoId"] for t in json.load(open("tracks.json"))}
+removed = 0
+tdir = Path("tracks")
+if tdir.exists():
+    for d in tdir.iterdir():
+        if d.is_dir() and d.name not in ids:
+            shutil.rmtree(d); removed += 1
+            og = Path("og") / f"track-{d.name}.png"
+            if og.exists(): og.unlink()
+print(f"  고아 폴더 {removed}개 제거")
+PY
 
 if [[ $PUSH -eq 0 ]]; then
   log "● --no-push: 로컬 빌드까지만. git 변경분:"; git status -s | head; exit 0
