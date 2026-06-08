@@ -22,9 +22,13 @@ from pathlib import Path
 from yt_dlp import YoutubeDL
 
 ROOT = Path(__file__).parent
-PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
-PLAYLIST_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
-TRACKS_FILE = ROOT / "tracks.json"
+
+# 동기화 대상 플레이리스트 (자매 플레이리스트 지원)
+PLAYLISTS = {
+    "slow": {"id": "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v", "tracks": "tracks.json"},
+    "low":  {"id": "PLRaEryL4ESyi3NSM-3oGgGp2zHlILTU1d", "tracks": "tracks_low.json"},
+}
+DEFAULT_KEY = "slow"
 
 
 def clean_artist(channel: str) -> str:
@@ -35,15 +39,16 @@ def clean_artist(channel: str) -> str:
     return a.strip() or "Unknown"
 
 
-def fetch_live() -> list:
+def fetch_live(playlist_id: str) -> list:
     """라이브 플레이리스트를 {videoId,title,channel} 순서대로 반환."""
+    url = f"https://www.youtube.com/playlist?list={playlist_id}"
     opts = {
         "quiet": True, "no_warnings": True,
         "extract_flat": True, "skip_download": True,
         "ignoreerrors": True,
     }
     with YoutubeDL(opts) as y:
-        info = y.extract_info(PLAYLIST_URL, download=False)
+        info = y.extract_info(url, download=False)
     out, seen = [], set()
     for e in (info or {}).get("entries", []):
         if not e:
@@ -63,28 +68,35 @@ def fetch_live() -> list:
     return out
 
 
-def load_existing() -> list:
-    if TRACKS_FILE.exists():
-        return json.loads(TRACKS_FILE.read_text(encoding="utf-8"))
+def load_existing(tracks_file: Path) -> list:
+    if tracks_file.exists():
+        return json.loads(tracks_file.read_text(encoding="utf-8"))
     return []
 
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--playlist", default=DEFAULT_KEY, choices=list(PLAYLISTS),
+                    help="동기화할 플레이리스트 키 (slow=Mr.Slow, low=Mr.Low)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
+    pl = PLAYLISTS[args.playlist]
+    playlist_id = pl["id"]
+    tracks_file = ROOT / pl["tracks"]
+    print(f"[sync] 대상: {args.playlist} ({playlist_id}) → {pl['tracks']}")
+
     try:
-        live = fetch_live()
+        live = fetch_live(playlist_id)
     except Exception as e:
         print(f"✖ 플레이리스트 가져오기 실패: {e}", file=sys.stderr)
         sys.exit(1)
 
     if not live:
-        print("✖ 트랙 0개 — 안전을 위해 tracks.json 덮어쓰지 않음", file=sys.stderr)
+        print(f"✖ 트랙 0개 — 안전을 위해 {pl['tracks']} 덮어쓰지 않음", file=sys.stderr)
         sys.exit(1)
 
-    old = load_existing()
+    old = load_existing(tracks_file)
     old_by_id = {t["videoId"]: t for t in old}
 
     # 라이브 순서대로 재구성: 기존 정제 메타 보존, 신규는 채널명 정리
@@ -121,7 +133,7 @@ def main():
         print(f"[sync] (dry-run) 신규 {len(added)} / 삭제 {len(removed)} — 파일 미수정")
         sys.exit(10)
 
-    TRACKS_FILE.write_text(
+    tracks_file.write_text(
         json.dumps(new, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"[sync] tracks.json 갱신 완료 (신규 {len(added)} / 삭제 {len(removed)} → 총 {len(new)})")
     sys.exit(10)

@@ -1,12 +1,14 @@
 """
-Mr. Slow SEO 랜딩 사이트 빌더 (multi-page)
-============================================
+Mr. Slow / Mr. Low SEO 랜딩 사이트 빌더 (multi-site, multi-page)
+================================================================
+SITES 설정으로 자매 플레이리스트를 각각 빌드:
+  Mr. Slow → 루트(/),  Mr. Low → /low/
 
-생성 페이지:
-  /                           — 메인 (전체 92트랙)
-  /moods/<mood>/              — 무드별 변형 (5개: breakup, night-drive, cafe-mood, seoul-night, k-indie-2026)
-  /tracks/<videoId>/          — 트랙 개별 (92개)
-  /posts/<slug>/              — 주간 블로그 포스트
+생성 페이지 (사이트별):
+  <base>/                     — 메인
+  <base>/moods/<mood>/        — 무드별 변형 (Mr. Slow만)
+  <base>/tracks/<videoId>/    — 트랙 개별
+  <base>/posts/<slug>/        — 주간 블로그 포스트 (Mr. Slow만)
 
 빌드:
   python3 build.py --domain https://YOUR.pages.dev
@@ -37,24 +39,116 @@ except ImportError:
 
 ROOT = Path(__file__).parent
 FORCE_OG = False  # main()에서 --force-og 시 True
-PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
-YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
-YT_NORMAL_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
-EMBED_URL = f"https://www.youtube.com/embed/videoseries?list={PLAYLIST_ID}"
-
-PLAYLIST_NAME = "Mr. Slow"
-TAGLINE_EN = "Korean pop vibe in Seoul right now"
-TAGLINE_KO = "지금 서울의 K-인디·감성·슬로우 {count}곡"
+# ── 공유 (모든 사이트 공통) ───────────────────────────────
 OWNER = "Mr. Slow"
 OWNER_HANDLE = "@alexiskwon"
 OWNER_URL = "https://www.youtube.com/@alexiskwon"
 
-ROOT_KEYWORDS = [
-    "한국 인디 플레이리스트", "감성 K-pop 플레이리스트", "새벽 감성 노래 모음",
-    "한국 슬로우 발라드", "전여친 플레이리스트", "이별 노래 추천",
-    "Seoul indie playlist", "Korean R&B chill playlist", "K-indie slow songs 2026",
-    "Korean breakup playlist", "YouTube Music K-pop playlist",
+# ── 사이트별 설정 (자매 플레이리스트) ─────────────────────
+# base="" → 루트(/), base="/low" → 하위(/low/)
+SITES = [
+    {
+        "key": "slow",
+        "base": "",
+        "playlist_id": "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v",
+        "tracks_file": "tracks.json",
+        "moods_file": "moods.json",
+        "has_posts": True,
+        "name": "Mr. Slow",
+        "tagline_en": "Korean pop vibe in Seoul right now",
+        "tagline_ko": "지금 서울의 K-인디·감성·슬로우 {n}곡",
+        "cover": "weekly_cover.png",          # 헤더 커버 (루트 상대경로)
+        "og_cover": "/weekly_cover.png",       # OG 이미지 (site_url 기준)
+        "keywords": [
+            "한국 인디 플레이리스트", "감성 K-pop 플레이리스트", "새벽 감성 노래 모음",
+            "한국 슬로우 발라드", "전여친 플레이리스트", "이별 노래 추천",
+            "Seoul indie playlist", "Korean R&B chill playlist", "K-indie slow songs 2026",
+            "Korean breakup playlist", "YouTube Music K-pop playlist",
+        ],
+        "index_title": "{name} — 한국 인디·감성 슬로우 플레이리스트 {n}곡 | K-Indie 2026",
+        "index_desc": "{tagline_ko}. CHAD BURGER, 온시온, 시즈더데이, 김연, Crush, NELL 등 {n}곡. YouTube Music에서 무료 재생.",
+        "index_intro": """
+<section class="intro">
+  <h2>이 플레이리스트는 어떤 음악인가요?</h2>
+  <p>
+    <strong>{name}</strong>은 2026년 현재 서울의 인디·감성·슬로우 한국 음악
+    <strong>{n}곡</strong>을 모은 큐레이션입니다.
+    <strong>CHAD BURGER</strong>, <strong>온시온(ONSEEON)</strong>, <strong>시즈더데이(seizetheday)</strong>,
+    <strong>김연(Yyeon)</strong>, <strong>Hollow Young</strong>, <strong>Ourealgoat</strong>,
+    <strong>melodywalk(전여친 playlist)</strong>, <strong>The Black Skirts</strong>, <strong>Crush</strong>,
+    <strong>NELL</strong>, <strong>pH-1</strong>, <strong>ASH ISLAND</strong>, <strong>Stray Kids</strong> 등.
+  </p>
+  <p>새벽 운전, 늦은 밤 카페, 비 오는 창가, 이별 직후 — 그런 순간에 어울리는 <strong>슬로우 K-pop 플레이리스트</strong>입니다.</p>
+</section>""",
+    },
+    {
+        "key": "low",
+        "base": "/low",
+        "playlist_id": "PLRaEryL4ESyi3NSM-3oGgGp2zHlILTU1d",
+        "tracks_file": "tracks_low.json",
+        "moods_file": None,        # 무드 페이지 없음
+        "has_posts": False,        # 주간 포스트 없음
+        "name": "Mr. Low",
+        "tagline_en": "Cozy indie pop & mellow vibes",
+        "tagline_ko": "포근한 인디 팝·멜로우 무드 {n}곡",
+        "cover": None,             # 첫 트랙 썸네일 사용
+        "og_cover": None,          # 첫 트랙 기반 OG 생성
+        "keywords": [
+            "cozy indie pop playlist", "mellow vibes playlist", "chill indie pop",
+            "bedroom pop playlist", "lo-fi indie playlist", "relaxing indie songs",
+            "감성 인디 팝 플레이리스트", "포근한 노래 모음", "멜로우 플레이리스트",
+        ],
+        "index_title": "{name} — Cozy Indie Pop & Mellow Vibes 플레이리스트 {n}곡",
+        "index_desc": "{tagline_ko}. HYBS, Aaron Childs 등 포근한 인디 팝·멜로우 무드 {n}곡. YouTube Music에서 무료 재생.",
+        "index_intro": """
+<section class="intro">
+  <h2>이 플레이리스트는 어떤 음악인가요?</h2>
+  <p>
+    <strong>{name}</strong>은 <strong>Mr. Slow</strong>의 자매 플레이리스트로,
+    포근한 인디 팝과 멜로우한 무드의 <strong>{n}곡</strong>을 모은 큐레이션입니다.
+  </p>
+  <p>나른한 오후, 느긋한 주말 아침, 창밖을 바라보는 시간 — 그런 순간에 어울리는 <strong>cozy indie pop 플레이리스트</strong>입니다.</p>
+</section>""",
+    },
 ]
+
+# 현재 빌드 중인 사이트의 값 (apply_site()가 주입; render_*가 참조)
+BASE = ""
+PLAYLIST_ID = SITES[0]["playlist_id"]
+YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
+YT_NORMAL_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
+EMBED_URL = f"https://www.youtube.com/embed/videoseries?list={PLAYLIST_ID}"
+PLAYLIST_NAME = SITES[0]["name"]
+TAGLINE_EN = SITES[0]["tagline_en"]
+TAGLINE_KO = SITES[0]["tagline_ko"]
+ROOT_KEYWORDS = SITES[0]["keywords"]
+COVER = SITES[0]["cover"]
+OG_COVER = SITES[0]["og_cover"]
+INDEX_TITLE = SITES[0]["index_title"]
+INDEX_DESC = SITES[0]["index_desc"]
+INDEX_INTRO = SITES[0]["index_intro"]
+
+
+def apply_site(cfg: dict, n_tracks: int):
+    """사이트 설정을 전역에 주입 (build_site에서 사이트마다 1회 호출)."""
+    global BASE, PLAYLIST_ID, YT_MUSIC_URL, YT_NORMAL_URL, EMBED_URL
+    global PLAYLIST_NAME, TAGLINE_EN, TAGLINE_KO, ROOT_KEYWORDS
+    global COVER, OG_COVER, INDEX_TITLE, INDEX_DESC, INDEX_INTRO
+    BASE = cfg["base"]
+    PLAYLIST_ID = cfg["playlist_id"]
+    YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
+    YT_NORMAL_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
+    EMBED_URL = f"https://www.youtube.com/embed/videoseries?list={PLAYLIST_ID}"
+    PLAYLIST_NAME = cfg["name"]
+    TAGLINE_EN = cfg["tagline_en"]
+    TAGLINE_KO = cfg["tagline_ko"].format(n=n_tracks)
+    ROOT_KEYWORDS = cfg["keywords"]
+    COVER = cfg["cover"]
+    OG_COVER = cfg["og_cover"]
+    INDEX_TITLE = cfg["index_title"].format(name=cfg["name"], n=n_tracks)
+    INDEX_DESC = cfg["index_desc"].format(
+        tagline_ko=TAGLINE_KO, name=cfg["name"], n=n_tracks)
+    INDEX_INTRO = cfg["index_intro"].format(name=cfg["name"], n=n_tracks)
 
 
 # ============================================================
@@ -192,7 +286,7 @@ def render_tracklist(tracks: list) -> str:
     for i, t in enumerate(tracks, 1):
         thumb = f"https://i.ytimg.com/vi/{t['videoId']}/default.jpg"
         # 내부 트랙 페이지로 링크 (외부 클릭아웃 대신 SEO 자산 활용)
-        href = f"/tracks/{t['videoId']}/"
+        href = f"{BASE}/tracks/{t['videoId']}/"
         items.append(f"""
       <li class="track">
         <a href="{href}">
@@ -211,7 +305,7 @@ def render_mood_grid(moods: dict) -> str:
     cards = []
     for slug, m in moods.items():
         cards.append(f"""
-    <a class="mood-card" href="/moods/{slug}/">
+    <a class="mood-card" href="{BASE}/moods/{slug}/">
       <div class="mh">{safe(m['h1'])}</div>
       <div class="ms">{safe(m['tagline_ko'])}</div>
     </a>""")
@@ -268,18 +362,36 @@ def make_schema_playlist(tracks: list, name: str, description: str, canonical: s
 # ============================================================
 
 def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> str:
-    canonical = site_url.rstrip("/") + "/"
-    cover = "weekly_cover.png"
-    title = f"{PLAYLIST_NAME} — 한국 인디·감성 슬로우 플레이리스트 {len(tracks)}곡 | K-Indie 2026"
-    desc = f"{TAGLINE_KO}. CHAD BURGER, 온시온, 시즈더데이, 김연, Crush, NELL 등 {len(tracks)}곡. YouTube Music에서 무료 재생."
+    canonical = site_url.rstrip("/") + BASE + "/"
+    title = INDEX_TITLE
+    desc = INDEX_DESC
 
-    og_url = f"{site_url.rstrip('/')}/weekly_cover.png"
+    # 커버 / OG 이미지 (사이트별)
+    if COVER:
+        cover = COVER
+    else:
+        cover = f"https://i.ytimg.com/vi/{tracks[0]['videoId']}/maxresdefault.jpg"
+    if OG_COVER:
+        og_url = f"{site_url.rstrip('/')}{OG_COVER}"
+    else:
+        og_url = gen_og(
+            slug=f"index-{BASE.strip('/') or 'root'}", video_id=tracks[0]["videoId"],
+            h1=PLAYLIST_NAME, tagline_en=TAGLINE_EN, tagline_ko=TAGLINE_KO,
+            meta_right=f"{len(tracks)} tracks", out_root=out_root, site_url=site_url,
+        )
 
     head = render_head(
         title=title, description=desc, keywords=ROOT_KEYWORDS,
         canonical=canonical, og_image=og_url,
         schema_json=make_schema_playlist(tracks, PLAYLIST_NAME, desc, canonical),
     )
+
+    moods_section = f"""
+<section>
+  <h2>무드별로 듣기</h2>
+  {render_mood_grid(moods)}
+</section>
+""" if moods else ""
 
     body = f"""
 <header>
@@ -301,25 +413,8 @@ def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> st
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-
-<section class="intro">
-  <h2>이 플레이리스트는 어떤 음악인가요?</h2>
-  <p>
-    <strong>{PLAYLIST_NAME}</strong>은 2026년 현재 서울의 인디·감성·슬로우 한국 음악
-    <strong>{len(tracks)}곡</strong>을 모은 큐레이션입니다.
-    <strong>CHAD BURGER</strong>, <strong>온시온(ONSEEON)</strong>, <strong>시즈더데이(seizetheday)</strong>,
-    <strong>김연(Yyeon)</strong>, <strong>Hollow Young</strong>, <strong>Ourealgoat</strong>,
-    <strong>melodywalk(전여친 playlist)</strong>, <strong>The Black Skirts</strong>, <strong>Crush</strong>,
-    <strong>NELL</strong>, <strong>pH-1</strong>, <strong>ASH ISLAND</strong>, <strong>Stray Kids</strong> 등.
-  </p>
-  <p>새벽 운전, 늦은 밤 카페, 비 오는 창가, 이별 직후 — 그런 순간에 어울리는 <strong>슬로우 K-pop 플레이리스트</strong>입니다.</p>
-</section>
-
-<section>
-  <h2>무드별로 듣기</h2>
-  {render_mood_grid(moods)}
-</section>
-
+{INDEX_INTRO}
+{moods_section}
 <section>
   <h2>전체 트랙리스트 ({len(tracks)}곡)</h2>
   {render_tracklist(tracks)}
@@ -370,7 +465,7 @@ def render_mood(slug: str, mood: dict, tracks: list, moods: dict, site_url: str,
 
     body = f"""
 <nav class="crumbs">
-  <a href="/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp; <span>{safe(mood['h1'])}</span>
+  <a href="{BASE}/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp; <span>{safe(mood['h1'])}</span>
 </nav>
 
 <header>
@@ -412,7 +507,7 @@ def render_mood(slug: str, mood: dict, tracks: list, moods: dict, site_url: str,
 def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str,
                  out_root: Path, lyrics_db: dict = None) -> str:
     vid = track["videoId"]
-    canonical = f"{site_url.rstrip('/')}/tracks/{vid}/"
+    canonical = f"{site_url.rstrip('/')}{BASE}/tracks/{vid}/"
     cover = f"https://i.ytimg.com/vi/{vid}/maxresdefault.jpg"
     thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
     title_seo = f"{track['title']} — {track['artist']} | from {PLAYLIST_NAME} (Korean Indie Playlist)"
@@ -442,7 +537,7 @@ def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str
         "inPlaylist": {
             "@type": "MusicPlaylist",
             "name": PLAYLIST_NAME,
-            "url": site_url.rstrip("/") + "/",
+            "url": site_url.rstrip("/") + BASE + "/",
         },
         "thumbnailUrl": cover,
     }
@@ -470,9 +565,9 @@ def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str
 
     nav_links = []
     if prev_t:
-        nav_links.append(f'<a href="/tracks/{prev_t["videoId"]}/" style="color:var(--muted);text-decoration:none">‹ {safe(prev_t["title"])}</a>')
+        nav_links.append(f'<a href="{BASE}/tracks/{prev_t["videoId"]}/" style="color:var(--muted);text-decoration:none">‹ {safe(prev_t["title"])}</a>')
     if next_t:
-        nav_links.append(f'<a href="/tracks/{next_t["videoId"]}/" style="color:var(--muted);text-decoration:none;margin-left:auto;text-align:right">{safe(next_t["title"])} ›</a>')
+        nav_links.append(f'<a href="{BASE}/tracks/{next_t["videoId"]}/" style="color:var(--muted);text-decoration:none;margin-left:auto;text-align:right">{safe(next_t["title"])} ›</a>')
     nav_block = f'<div style="display:flex;justify-content:space-between;gap:20px;margin-top:32px;font-size:14px">{" ".join(nav_links)}</div>' if nav_links else ""
 
     embed_single = f"https://www.youtube.com/embed/{vid}?list={PLAYLIST_ID}"
@@ -737,8 +832,8 @@ window.addEventListener('DOMContentLoaded', () => {{
 
     body = f"""
 <nav class="crumbs">
-  <a href="/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp;
-  <a href="/#tracks">Tracks</a> &nbsp;›&nbsp;
+  <a href="{BASE}/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp;
+  <a href="{BASE}/#tracks">Tracks</a> &nbsp;›&nbsp;
   <span>{safe(track['title'])}</span>
 </nav>
 
@@ -746,7 +841,7 @@ window.addEventListener('DOMContentLoaded', () => {{
   <div class="cover" style="background-image:url('{cover}')" role="img" aria-label="{safe(track['title'])}"></div>
   <h1>{safe(track['title'])}</h1>
   <p class="tagline">{safe(track['artist'])}</p>
-  <p class="tagline-ko">from <a href="/" style="color:#bbb;border-bottom:1px solid #444;text-decoration:none">{PLAYLIST_NAME}</a> playlist · Track {idx + 1} of {len(tracks)}</p>
+  <p class="tagline-ko">from <a href="{BASE}/" style="color:#bbb;border-bottom:1px solid #444;text-decoration:none">{PLAYLIST_NAME}</a> playlist · Track {idx + 1} of {len(tracks)}</p>
   <p style="margin-top:24px">
     <a class="cta" href="{watch_url}" rel="noopener" target="_blank">▶ YouTube Music에서 듣기</a>
   </p>
@@ -816,13 +911,13 @@ def render_weekly_post(post_slug: str, post_date: datetime, featured_tracks: lis
       allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
   </div>
   <p>
-    <a href="/tracks/{t['videoId']}/" style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none">트랙 페이지 →</a>
+    <a href="{BASE}/tracks/{t['videoId']}/" style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none">트랙 페이지 →</a>
   </p>
 </section>""")
 
     body = f"""
 <nav class="crumbs">
-  <a href="/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp;
+  <a href="{BASE}/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp;
   <a href="/posts/">Weekly</a> &nbsp;›&nbsp;
   <span>{year} W{week_num:02d}</span>
 </nav>
@@ -873,7 +968,7 @@ def render_posts_index(posts: list, moods: dict, site_url: str, out_root: Path) 
   </a>
 </li>""")
     body = f"""
-<nav class="crumbs"><a href="/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp; <span>Weekly</span></nav>
+<nav class="crumbs"><a href="{BASE}/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp; <span>Weekly</span></nav>
 <header><h1>Weekly</h1><p class="tagline-ko">매주 5곡씩 골라 듣기</p></header>
 <section><ul style="list-style:none">{"".join(items) if items else '<li style="color:var(--muted)">아직 포스트가 없습니다.</li>'}</ul></section>
 """
@@ -948,13 +1043,85 @@ def add_new_weekly_post(out: Path, tracks: list) -> str:
     return slug
 
 
+def build_site(cfg: dict, domain: str, out: Path, lyrics_db: dict, new_post: bool) -> list:
+    """단일 사이트(cfg)를 out/<base>에 생성하고 sitemap URL 목록을 반환."""
+    tracks = json.loads((ROOT / cfg["tracks_file"]).read_text(encoding="utf-8"))
+    moods = (json.loads((ROOT / cfg["moods_file"]).read_text(encoding="utf-8"))
+             if cfg["moods_file"] else {})
+    apply_site(cfg, len(tracks))
+    base = cfg["base"]                       # "" 또는 "/low"
+    out_base = out / base.strip("/") if base else out
+    urls = []
+
+    print(f"── 빌드: {cfg['name']} ({base or '/'}) — 트랙 {len(tracks)} / 무드 {len(moods)}")
+
+    # 1) 메인
+    write(out_base / "index.html", render_index(tracks, moods, domain, out))
+    urls.append((f"{base}/", "1.0", "weekly"))
+
+    # 2) 무드 페이지
+    for slug, mood in moods.items():
+        write(out_base / "moods" / slug / "index.html",
+              render_mood(slug, mood, tracks, moods, domain, out))
+        urls.append((f"{base}/moods/{slug}/", "0.9", "monthly"))
+
+    # 3) 트랙 페이지 (중복 videoId 제거)
+    seen_ids = set()
+    for i, t in enumerate(tracks):
+        if t["videoId"] in seen_ids:
+            continue
+        seen_ids.add(t["videoId"])
+        write(out_base / "tracks" / t["videoId"] / "index.html",
+              render_track(t, i, tracks, moods, domain, out, lyrics_db))
+        urls.append((f"{base}/tracks/{t['videoId']}/", "0.7", "monthly"))
+
+    # 4) 주간 포스트 (has_posts 사이트만)
+    if cfg["has_posts"]:
+        if new_post:
+            add_new_weekly_post(out, tracks)
+        elif not load_posts_manifest(out):
+            add_new_weekly_post(out, tracks)
+        posts = load_posts_manifest(out)
+
+        import random as _random
+        by_id = {t["videoId"]: t for t in tracks}
+        for p in posts:
+            post_date = datetime.fromisoformat(p["date"])
+            # 추천곡 중 현재 트랙에 남아있는 것만 (순서 유지, 중복 제거)
+            featured, seen_f = [], set()
+            for vid in p["featured_video_ids"]:
+                if vid in by_id and vid not in seen_f:
+                    seen_f.add(vid)
+                    featured.append(by_id[vid])
+            # 삭제로 5곡 미만이면 결정론적으로 보충 (slug 시드)
+            if len(featured) < 5 and tracks:
+                rng = _random.Random(p["slug"])
+                pool = [t for t in tracks if t["videoId"] not in seen_f]
+                rng.shuffle(pool)
+                for t in pool:
+                    if len(featured) >= 5:
+                        break
+                    seen_f.add(t["videoId"])
+                    featured.append(t)
+            write(out_base / "posts" / p["slug"] / "index.html",
+                  render_weekly_post(p["slug"], post_date, featured, tracks, moods, domain, out))
+            urls.append((f"{base}/posts/{p['slug']}/", "0.8", "yearly"))
+
+        write(out_base / "posts" / "index.html",
+              render_posts_index(posts, moods, domain, out))
+        urls.append((f"{base}/posts/", "0.6", "weekly"))
+
+    print(f"     생성: index 1 / moods {len(moods)} / tracks {len(seen_ids)}")
+    return urls
+
+
 def main():
     global FORCE_OG
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", default="https://minsungkwon-bit.github.io")
     ap.add_argument("--out", default=str(ROOT))
     ap.add_argument("--new-post", action="store_true",
-                    help="이번 주 신규 포스트 생성 후 빌드")
+                    help="이번 주 신규 포스트 생성 후 빌드 (Mr. Slow)")
     ap.add_argument("--force-og", action="store_true",
                     help="OG 이미지 재생성 (디자인 변경 시)")
     args = ap.parse_args()
@@ -962,12 +1129,6 @@ def main():
 
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-
-    tracks = json.loads((ROOT / "tracks.json").read_text(encoding="utf-8"))
-    moods = json.loads((ROOT / "moods.json").read_text(encoding="utf-8"))
-
-    global TAGLINE_KO
-    TAGLINE_KO = TAGLINE_KO.format(count=len(tracks))
 
     # lyrics.json (선택) - 없거나 비어있어도 동작
     lyrics_db = {}
@@ -977,92 +1138,23 @@ def main():
         lyrics_db = {k: v for k, v in raw.items()
                      if not k.startswith("_") and (v.get("hook") or v.get("lines"))}
 
-    print(f"[1] 도메인: {args.domain}")
-    print(f"[2] 트랙 {len(tracks)}개 / 무드 {len(moods)}개 / 가사 {len(lyrics_db)}개 로드")
+    print(f"[1] 도메인: {args.domain} / 사이트 {len(SITES)}개 / 가사 {len(lyrics_db)}개")
 
-    # 신규 포스트 추가 옵션
-    if args.new_post:
-        add_new_weekly_post(out, tracks)
-    else:
-        # 첫 실행이면 시작용 포스트 1개 자동 생성
-        if not load_posts_manifest(out):
-            add_new_weekly_post(out, tracks)
-
-    posts = load_posts_manifest(out)
-    print(f"[3] 포스트 {len(posts)}개")
-
-    all_urls = [("/", "1.0", "weekly")]
-
-    # 1) 메인
-    write(out / "index.html", render_index(tracks, moods, args.domain, out))
-
-    # 2) 무드 페이지 (5개)
-    for slug, mood in moods.items():
-        write(out / "moods" / slug / "index.html",
-              render_mood(slug, mood, tracks, moods, args.domain, out))
-        all_urls.append((f"/moods/{slug}/", "0.9", "monthly"))
-
-    # 3) 트랙 페이지 (중복 videoId 제거)
-    seen_ids = set()
-    for i, t in enumerate(tracks):
-        if t["videoId"] in seen_ids:
+    all_urls = []
+    for cfg in SITES:
+        # 트랙 파일 없는 사이트는 스킵 (예: 아직 동기화 안 됨)
+        if not (ROOT / cfg["tracks_file"]).exists():
+            print(f"── 스킵: {cfg['name']} ({cfg['tracks_file']} 없음)")
             continue
-        seen_ids.add(t["videoId"])
-        write(out / "tracks" / t["videoId"] / "index.html",
-              render_track(t, i, tracks, moods, args.domain, out, lyrics_db))
-        all_urls.append((f"/tracks/{t['videoId']}/", "0.7", "monthly"))
+        all_urls += build_site(cfg, args.domain, out, lyrics_db, args.new_post)
 
-    # 4) 주간 포스트
-    import random as _random
-    by_id = {t["videoId"]: t for t in tracks}
-    for p in posts:
-        post_date = datetime.fromisoformat(p["date"])
-        # 추천곡 중 현재 트랙에 남아있는 것만 (순서 유지, 중복 제거)
-        featured, seen_f = [], set()
-        for vid in p["featured_video_ids"]:
-            if vid in by_id and vid not in seen_f:
-                seen_f.add(vid)
-                featured.append(by_id[vid])
-        # 삭제로 5곡 미만이면 결정론적으로 보충 (slug 시드)
-        if len(featured) < 5 and tracks:
-            rng = _random.Random(p["slug"])
-            pool = [t for t in tracks if t["videoId"] not in seen_f]
-            rng.shuffle(pool)
-            for t in pool:
-                if len(featured) >= 5:
-                    break
-                seen_f.add(t["videoId"])
-                featured.append(t)
-        write(out / "posts" / p["slug"] / "index.html",
-              render_weekly_post(p["slug"], post_date, featured, tracks, moods, args.domain, out))
-        all_urls.append((f"/posts/{p['slug']}/", "0.8", "yearly"))
-
-    # 포스트 인덱스
-    write(out / "posts" / "index.html",
-          render_posts_index(posts, moods, args.domain, out))
-    all_urls.append(("/posts/", "0.6", "weekly"))
-
-    # 5) sitemap / robots / .nojekyll
+    # sitemap / robots / .nojekyll (루트 1회)
     write(out / "sitemap.xml", render_sitemap(all_urls, args.domain))
     write(out / "robots.txt", render_robots(args.domain))
     write(out / ".nojekyll", "")
 
-    # 통계
-    total_files = (
-        1                      # index
-        + len(moods)           # moods
-        + len(tracks)          # tracks
-        + len(posts) + 1       # posts + index
-        + 3                    # sitemap, robots, nojekyll
-    )
-    print(f"[4] 생성:")
-    print(f"      1 × root index")
-    print(f"      {len(moods)} × mood pages")
-    print(f"      {len(seen_ids)} × track pages")
-    print(f"      {len(posts) + 1} × posts (+index)")
-    print(f"      sitemap.xml ({len(all_urls)} URLs)")
-    print(f"      = {total_files} 파일")
-    print(f"[5] 출력: {out.resolve()}")
+    print(f"[2] sitemap.xml ({len(all_urls)} URLs) + robots + .nojekyll")
+    print(f"[3] 출력: {out.resolve()}")
 
 
 if __name__ == "__main__":
