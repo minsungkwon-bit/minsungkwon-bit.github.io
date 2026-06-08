@@ -38,6 +38,7 @@ except ImportError:
 ROOT = Path(__file__).parent
 FORCE_OG = False  # main()에서 --force-og 시 True
 VIDEO_META = {}   # main()에서 video_meta.json 로드 (VideoObject uploadDate/duration)
+ARTIST_SLUGS = {} # main()에서 채움 (artist명 → /artists/<slug>/ 링크용)
 PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
 YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
 YT_NORMAL_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
@@ -392,6 +393,7 @@ def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> st
 <section>
   <h2>무드별로 듣기</h2>
   {render_mood_grid(moods)}
+  <p style="margin-top:16px"><a href="/artists/" style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none">아티스트별로 듣기 →</a></p>
 </section>
 
 <section>
@@ -835,10 +837,15 @@ window.addEventListener('DOMContentLoaded', () => {{
 
     related_html = ""
     if same_artist:
+        hub_slug = ARTIST_SLUGS.get(track["artist"])
+        hub_link = (f'<p style="margin-top:8px"><a href="/artists/{hub_slug}/" '
+                    f'style="color:var(--accent);border-bottom:1px solid var(--accent);text-decoration:none">'
+                    f'{safe(track["artist"])} 노래 모두 보기 →</a></p>') if hub_slug else ""
         related_html = f"""
 <section>
   <h2>이 플레이리스트의 다른 곡</h2>
   {render_tracklist(same_artist)}
+  {hub_link}
 </section>"""
 
     body = f"""
@@ -986,6 +993,92 @@ def render_posts_index(posts: list, moods: dict, site_url: str, out_root: Path) 
     return head + body + render_footer()
 
 
+# ============================================================
+# 아티스트 허브 (/artists/<slug>/) — "○○ 노래 모음" 검색 타겟
+# ============================================================
+
+def slugify(name: str) -> str:
+    s = (name or "").strip().lower()
+    s = re.sub(r"[^\w가-힣]+", "-", s)   # 한글·영숫자만 유지, 나머지는 -
+    s = re.sub(r"-+", "-", s).strip("-")
+    return s or "artist"
+
+
+def render_artist(name: str, slug: str, artist_tracks: list, site_url: str,
+                  out_root: Path) -> str:
+    canonical = f"{site_url.rstrip('/')}/artists/{slug}/"
+    n = len(artist_tracks)
+    cover = f"https://i.ytimg.com/vi/{artist_tracks[0]['videoId']}/maxresdefault.jpg"
+    title = f"{name} 노래 모음 {n}곡 — 한국 인디 플레이리스트 | {PLAYLIST_NAME}"
+    desc = (f"{name}의 곡 {n}곡 모음. {PLAYLIST_NAME} 한국 인디·감성·슬로우 플레이리스트에서 "
+            f"{name} 노래를 무료로 들어보세요.")
+    og_url = gen_og(
+        slug=f"artist-{slug}", video_id=artist_tracks[0]["videoId"],
+        h1=name, tagline_en=f"{n} tracks", tagline_ko=f"{name} 노래 모음",
+        meta_right=f"{PLAYLIST_NAME}", out_root=out_root, site_url=site_url,
+    )
+    home_url = site_url.rstrip("/") + "/"
+    schema = ld_graph(
+        {"@type": "MusicGroup", "name": name, "url": canonical},
+        schema_breadcrumb([(PLAYLIST_NAME, home_url),
+                           ("Artists", home_url + "artists/"), (name, None)]),
+    )
+    head = render_head(
+        title=title, description=desc,
+        keywords=[f"{name} 노래", f"{name} 곡", f"{name} 플레이리스트", f"{name} 노래 모음",
+                  "한국 인디", "K-indie", PLAYLIST_NAME],
+        canonical=canonical, og_image=og_url, og_type="website", schema_json=schema,
+    )
+    body = f"""
+<nav class="crumbs">
+  <a href="/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp;
+  <a href="/artists/">Artists</a> &nbsp;›&nbsp; <span>{safe(name)}</span>
+</nav>
+
+<header>
+  <div class="cover" style="background-image:url('{cover}')" role="img" aria-label="{safe(name)}"></div>
+  <h1>{safe(name)}</h1>
+  <p class="tagline-ko">{PLAYLIST_NAME} 수록 {n}곡</p>
+  <p style="margin-top:20px"><a class="cta" href="{YT_MUSIC_URL}" rel="noopener" target="_blank">▶ YouTube Music에서 듣기</a></p>
+</header>
+
+<section class="intro">
+  <p><strong>{safe(name)}</strong>의 곡 {n}곡을 「{PLAYLIST_NAME}」 한국 인디·감성·슬로우 플레이리스트에서 모아 들어보세요.</p>
+</section>
+
+<section>
+  <h2>{safe(name)} 트랙리스트</h2>
+  {render_tracklist(artist_tracks)}
+</section>
+"""
+    return head + body + render_footer()
+
+
+def render_artists_index(artist_items: list, site_url: str, out_root: Path) -> str:
+    """artist_items: [(name, slug, count)] (정렬 완료)."""
+    canonical = f"{site_url.rstrip('/')}/artists/"
+    og_url = f"{site_url.rstrip('/')}/weekly_cover.png"
+    head = render_head(
+        title=f"아티스트별 듣기 — 한국 인디 아티스트 모음 | {PLAYLIST_NAME}",
+        description=f"{PLAYLIST_NAME} 플레이리스트의 한국 인디 아티스트를 한눈에. 아티스트별 노래 모음 페이지로 이동하세요.",
+        keywords=["한국 인디 아티스트", "K-indie artists", "아티스트별 노래", PLAYLIST_NAME],
+        canonical=canonical, og_image=og_url, og_type="website",
+        schema_json=ld_graph(schema_breadcrumb(
+            [(PLAYLIST_NAME, site_url.rstrip("/") + "/"), ("Artists", None)])),
+    )
+    cards = "".join(
+        f'<a class="mood-card" href="/artists/{slug}/">'
+        f'<div class="mh">{safe(name)}</div><div class="ms">{cnt}곡</div></a>'
+        for name, slug, cnt in artist_items
+    )
+    body = f"""
+<nav class="crumbs"><a href="/">{PLAYLIST_NAME}</a> &nbsp;›&nbsp; <span>Artists</span></nav>
+<header><h1>아티스트별 듣기</h1><p class="tagline-ko">{len(artist_items)}명의 한국 인디 아티스트</p></header>
+<section><div class="mood-grid">{cards}</div></section>
+"""
+    return head + body + render_footer()
+
+
 def render_sitemap(all_urls: list, site_url: str) -> str:
     today = datetime.utcnow().strftime("%Y-%m-%d")
     base = site_url.rstrip("/")
@@ -1055,7 +1148,7 @@ def add_new_weekly_post(out: Path, tracks: list) -> str:
 
 
 def main():
-    global FORCE_OG, VIDEO_META
+    global FORCE_OG, VIDEO_META, ARTIST_SLUGS
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", default="https://minsungkwon-bit.github.io")
     ap.add_argument("--out", default=str(ROOT))
@@ -1104,10 +1197,30 @@ def main():
 
     all_urls = [("/", "1.0", "weekly")]
 
+    # 아티스트 허브 (2곡 이상) — slug가 트랙 페이지 링크에 쓰여 먼저 계산
+    from collections import OrderedDict as _OD
+    by_artist = _OD()
+    for t in tracks:
+        by_artist.setdefault(t["artist"], []).append(t)
+    hub_artists = sorted(
+        [(a, ts) for a, ts in by_artist.items() if len(ts) >= 2],
+        key=lambda x: (-len(x[1]), x[0].lower()))
+    ARTIST_SLUGS = {}
+    seen_slugs, artist_items = set(), []
+    for a, ts in hub_artists:
+        s = slugify(a)
+        base, i = s, 2
+        while s in seen_slugs:
+            s = f"{base}-{i}"
+            i += 1
+        seen_slugs.add(s)
+        ARTIST_SLUGS[a] = s
+        artist_items.append((a, s, len(ts)))
+
     # 1) 메인
     write(out / "index.html", render_index(tracks, moods, args.domain, out))
 
-    # 2) 무드 페이지 (5개)
+    # 2) 무드 페이지
     for slug, mood in moods.items():
         write(out / "moods" / slug / "index.html",
               render_mood(slug, mood, tracks, moods, args.domain, out))
@@ -1153,7 +1266,17 @@ def main():
           render_posts_index(posts, moods, args.domain, out))
     all_urls.append(("/posts/", "0.6", "weekly"))
 
-    # 5) sitemap / robots / .nojekyll
+    # 5) 아티스트 허브 페이지 + 인덱스
+    for a, s, _cnt in artist_items:
+        write(out / "artists" / s / "index.html",
+              render_artist(a, s, by_artist[a], args.domain, out))
+        all_urls.append((f"/artists/{s}/", "0.6", "monthly"))
+    if artist_items:
+        write(out / "artists" / "index.html",
+              render_artists_index(artist_items, args.domain, out))
+        all_urls.append(("/artists/", "0.5", "monthly"))
+
+    # 6) sitemap / robots / .nojekyll
     write(out / "sitemap.xml", render_sitemap(all_urls, args.domain))
     write(out / "robots.txt", render_robots(args.domain))
     write(out / ".nojekyll", "")
