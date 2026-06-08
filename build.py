@@ -37,6 +37,7 @@ except ImportError:
 
 ROOT = Path(__file__).parent
 FORCE_OG = False  # main()에서 --force-og 시 True
+VIDEO_META = {}   # main()에서 video_meta.json 로드 (VideoObject uploadDate/duration)
 PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
 YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
 YT_NORMAL_URL = f"https://www.youtube.com/playlist?list={PLAYLIST_ID}"
@@ -285,15 +286,22 @@ def schema_faq(qa: list) -> dict:
     }
 
 
-def schema_video(track: dict, embed_url: str, thumb: str, description: str) -> dict:
-    # uploadDate는 정확값이 없어 생략 (영상 리치결과는 날짜 보강 시 활성화)
-    return {
+def schema_video(track: dict, embed_url: str, thumb: str, description: str,
+                 meta: dict = None) -> dict:
+    obj = {
         "@type": "VideoObject",
         "name": f"{track['title']} — {track['artist']}",
         "description": description,
         "thumbnailUrl": thumb,
         "embedUrl": embed_url,
     }
+    # video_meta.json 보강값 (영상 리치결과 요건: uploadDate)
+    if meta:
+        if meta.get("uploadDate"):
+            obj["uploadDate"] = meta["uploadDate"]
+        if meta.get("duration"):
+            obj["duration"] = meta["duration"]
+    return obj
 
 
 def ld_graph(*objs) -> str:
@@ -553,7 +561,7 @@ def render_track(track: dict, idx: int, tracks: list, moods: dict, site_url: str
     ])
     video = schema_video(
         track, embed_url=f"https://www.youtube.com/embed/{vid}",
-        thumb=cover, description=desc,
+        thumb=cover, description=desc, meta=VIDEO_META.get(vid),
     )
     head = render_head(
         title=title_seo, description=desc,
@@ -1047,7 +1055,7 @@ def add_new_weekly_post(out: Path, tracks: list) -> str:
 
 
 def main():
-    global FORCE_OG
+    global FORCE_OG, VIDEO_META
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", default="https://minsungkwon-bit.github.io")
     ap.add_argument("--out", default=str(ROOT))
@@ -1074,6 +1082,11 @@ def main():
         raw = json.loads(lyrics_file.read_text(encoding="utf-8"))
         lyrics_db = {k: v for k, v in raw.items()
                      if not k.startswith("_") and (v.get("hook") or v.get("lines"))}
+
+    # video_meta.json (선택) - VideoObject uploadDate/duration 보강
+    meta_file = ROOT / "video_meta.json"
+    if meta_file.exists():
+        VIDEO_META = json.loads(meta_file.read_text(encoding="utf-8"))
 
     print(f"[1] 도메인: {args.domain}")
     print(f"[2] 트랙 {len(tracks)}개 / 무드 {len(moods)}개 / 가사 {len(lyrics_db)}개 로드")
