@@ -570,29 +570,19 @@
     "artist": "Halsoon"
   },
   {
-    "videoId": "DcW2s0rRgTM",
-    "title": "기록 말고 기분으로 뛰는 날",
-    "artist": "jehoda"
+    "videoId": "nNgPxwyPDe0",
+    "title": "마음의 숲",
+    "artist": "조선힙합"
   },
   {
-    "videoId": "3N9_QExjJoM",
-    "title": "Good bye 잘지내 (feat. Gist) (feat. Gist)",
-    "artist": "GRIO, PYMEL"
+    "videoId": "m_6kKt59kQQ",
+    "title": "Don′t talk (feat. Gist, HOON & TRADE L)",
+    "artist": "GRIO"
   },
   {
-    "videoId": "7yzuBgsYJlQ",
-    "title": "FLOWER (feat. Gist & VVON)",
-    "artist": "DJ Sparrow"
-  },
-  {
-    "videoId": "wh17xD8s7D0",
-    "title": "Bad Love Story (Feat. PLHN) (feat. PLHN)",
-    "artist": "Kid Wine"
-  },
-  {
-    "videoId": "OTD-gD8YkTs",
-    "title": "실수 아니고 진심이야",
-    "artist": "ONSEEON (온시온)"
+    "videoId": "RbjJb0er3cE",
+    "title": "you wanted my heart (feat. SO HYUN)",
+    "artist": "Ivory"
   },
   {
     "videoId": "d6kqdU0x3vw",
@@ -600,9 +590,34 @@
     "artist": "Kinn"
   },
   {
-    "videoId": "nNgPxwyPDe0",
-    "title": "마음의 숲",
-    "artist": "조선힙합"
+    "videoId": "pLoQZ8SqUJE",
+    "title": "First Sight",
+    "artist": "can’t be blue"
+  },
+  {
+    "videoId": "OTD-gD8YkTs",
+    "title": "실수 아니고 진심이야",
+    "artist": "ONSEEON (온시온)"
+  },
+  {
+    "videoId": "jESTIa8yZrc",
+    "title": "Problem (feat. Jayci yucca (제이씨 유카))",
+    "artist": "OUREALGOAT"
+  },
+  {
+    "videoId": "7yzuBgsYJlQ",
+    "title": "FLOWER (feat. Gist & VVON)",
+    "artist": "DJ Sparrow"
+  },
+  {
+    "videoId": "Pr6gXBTCy00",
+    "title": "One-way Love (feat. h3hyeon)",
+    "artist": "Ryeojin"
+  },
+  {
+    "videoId": "DcW2s0rRgTM",
+    "title": "기록 말고 기분으로 뛰는 날",
+    "artist": "jehoda"
   },
   {
     "videoId": "ojw97P9dzUE",
@@ -610,13 +625,23 @@
     "artist": "laonpill"
   },
   {
-    "videoId": "toRgWq-H8VQ",
-    "title": "Message",
-    "artist": "ONSEEON"
+    "videoId": "3N9_QExjJoM",
+    "title": "Good bye 잘지내 (feat. Gist) (feat. Gist)",
+    "artist": "GRIO, PYMEL"
   },
   {
     "videoId": "HC9XN6KBVVE",
     "title": "사랑이라 했던 말 속에서",
     "artist": "can’t be blue (캔트비블루)"
+  },
+  {
+    "videoId": "toRgWq-H8VQ",
+    "title": "Message",
+    "artist": "ONSEEON"
+  },
+  {
+    "videoId": "wh17xD8s7D0",
+    "title": "Bad Love Story (Feat. PLHN) (feat. PLHN)",
+    "artist": "Kid Wine"
   }
 ]
