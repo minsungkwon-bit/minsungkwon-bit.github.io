@@ -1,0 +1,10 @@
+{
+  "_comment": "이 파일을 analytics.json으로 복사하고 site_code를 채우면 방문자 집계가 켜집니다. API 토큰은 여기 두지 말고 ~/.config/ytmusic-recommender/analytics_token 에 저장하세요.",
+  "_providers": {
+    "goatcounter": "site_code = 계정 코드. https://<코드>.goatcounter.com 의 <코드> 부분",
+    "plausible": "site_code = 등록한 도메인 (예: minsungkwon-bit.github.io)",
+    "ga4": "site_code = 측정 ID (G-XXXXXXXXXX). 추적만 되고 지역 표 자동 표시는 미지원"
+  },
+  "provider": "goatcounter",
+  "site_code": ""
+}

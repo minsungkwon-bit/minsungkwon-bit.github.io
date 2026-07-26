@@ -38,6 +38,9 @@ except ImportError:
 ROOT = Path(__file__).parent
 FORCE_OG = False  # main()에서 --force-og 시 True
 VIDEO_META = {}   # main()에서 video_meta.json 로드 (VideoObject uploadDate/duration)
+STATS = {}        # main()에서 stats.json 로드 (collect_stats.py가 생성)
+VISITORS = {}     # main()에서 visitors.json 로드 (fetch_visitors.py가 생성)
+ANALYTICS = {}    # main()에서 analytics.json 로드 (방문자 집계 스크립트 설정)
 ARTIST_SLUGS = {} # main()에서 채움 (artist명 → /artists/<slug>/ 링크용)
 PLAYLIST_ID = "PLRaEryL4ESyhMg4l4ZpVr0pnNxGPIzh-v"
 YT_MUSIC_URL = f"https://music.youtube.com/playlist?list={PLAYLIST_ID}"
@@ -135,8 +138,70 @@ h2{font-size:22px;margin-bottom:16px;font-weight:700}
 .mood-card .ms{font-size:13px;color:var(--muted)}
 footer{margin-top:60px;padding-top:32px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:13px}
 footer a{color:var(--muted)}
-@media(max-width:600px){.cover{width:220px;height:220px}}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+.kpi{background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:16px}
+.kpi .k-label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.kpi .k-value{font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .k-sub{font-size:12px;color:var(--muted);margin-top:4px}
+.up{color:#3ddc84}
+.stat-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.stat-table th,.stat-table td{padding:9px 8px;border-bottom:1px solid var(--border);text-align:right;
+  white-space:nowrap;font-variant-numeric:tabular-nums}
+.stat-table th{color:var(--muted);font-weight:600;font-size:12px}
+.stat-table th:first-child,.stat-table td:first-child{text-align:left;white-space:normal}
+.stat-table td.name{max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.stat-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--accent);display:block;min-width:2px}
+.bar-cell{width:120px}
+.line-tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:999px;
+  border:1px solid var(--border);color:var(--muted);margin-right:6px}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+@media(max-width:600px){.cover{width:220px;height:220px}.kpi .k-value{font-size:20px}}
 """
+
+
+def render_analytics() -> str:
+    """analytics.json이 있으면 방문자 집계 스크립트를 넣는다.
+
+    설정 파일이 없으면 아무것도 넣지 않는다. 추적 ID는 공개되는 값이라 저장소에
+    두어도 되지만, 통계를 되읽는 API 토큰은 절대 여기 두지 말 것
+    (fetch_visitors.py가 ~/.config에서 읽는다).
+    """
+    cfg = ANALYTICS or {}
+    provider = (cfg.get("provider") or "").lower()
+    code = cfg.get("site_code") or ""
+    if not provider or not code:
+        return ""
+    if provider == "goatcounter":
+        return (f'\n<script data-goatcounter="https://{safe(code)}.goatcounter.com/count"'
+                ' async src="//gc.zgo.at/count.js"></script>')
+    if provider == "ga4":
+        return (f'\n<script async src="https://www.googletagmanager.com/gtag/js?id={safe(code)}"></script>'
+                '\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}'
+                f"gtag('js',new Date());gtag('config','{safe(code)}')</script>")
+    if provider == "plausible":
+        return (f'\n<script defer data-domain="{safe(code)}" src="https://plausible.io/js/script.js"></script>')
+    return ""
+
+
+def fmt_n(n) -> str:
+    """1,234,567 → 123.4만 처럼 읽기 쉬운 축약."""
+    if n is None:
+        return "—"
+    n = int(n)
+    if abs(n) >= 100_000_000:
+        return f"{n/100_000_000:.1f}억"
+    if abs(n) >= 10_000_000:      # 1000만 이상은 소수점이 거추장스럽다
+        return f"{round(n/10_000):,}만"
+    if abs(n) >= 10_000:
+        return f"{n/10_000:.1f}만"
+    return f"{n:,}"
+
+
+def fmt_pct(p) -> str:
+    if p is None:
+        return "—"
+    return f"{'+' if p >= 0 else ''}{p:.1f}%"
 
 
 def render_head(*, title: str, description: str, keywords: list, canonical: str,
@@ -171,7 +236,7 @@ def render_head(*, title: str, description: str, keywords: list, canonical: str,
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="dns-prefetch" href="https://music.youtube.com">
 {schema_block}
-<style>{base_css()}</style>
+<style>{base_css()}</style>{render_analytics()}
 </head>
 <body>
 <div class="wrap">"""
@@ -327,6 +392,174 @@ def render_faq_html(qa: list) -> str:
 # 페이지 렌더러
 # ============================================================
 
+def _bar(value: float, peak: float) -> str:
+    pct = 0 if not peak else max(2, round(value / peak * 100))
+    return f'<span class="bar" style="width:{pct}%"></span>'
+
+
+def render_stats_section(stats: dict, visitors: dict) -> str:
+    """재생수·증가율·아티스트·지역 분석 섹션.
+
+    stats.json이 없으면 통째로 빠진다. 증가율은 스냅샷이 이틀치 쌓여야 나오므로
+    그 전까지는 해당 칼럼만 '—'로 표시한다.
+    """
+    if not stats or not stats.get("lines"):
+        return ""
+
+    lines = stats["lines"]
+    totals = stats.get("totals", {})
+    by_key = {l["key"]: l for l in lines}
+    gen = (stats.get("generated_at") or "")[:10]
+    has_growth = any(l.get("total_delta7d") for l in lines)
+
+    # ── 요약 카드
+    delta = totals.get("total_delta7d") or 0
+    kpis = [
+        ("전체 트랙", f"{totals.get('tracks', 0)}곡", f"{len(lines)}개 라인"),
+        ("누적 재생수", fmt_n(totals.get("total_views")), "YouTube 기준"),
+        ("7일 증가", fmt_n(delta) if has_growth else "집계 중",
+         "지난 7일 신규 재생" if has_growth else f"{stats.get('history_days', 0)}일치 수집됨"),
+        ("최근 갱신", gen or "—", "매일 자동 수집"),
+    ]
+    kpi_html = "".join(
+        f'<div class="kpi"><div class="k-label">{safe(l)}</div>'
+        f'<div class="k-value">{safe(str(v))}</div><div class="k-sub">{safe(s)}</div></div>'
+        for l, v, s in kpis
+    )
+
+    # ── 라인별 비교
+    peak = max((l["total_views"] for l in lines), default=0)
+    rows = "".join(
+        f'<tr><td class="name"><span class="line-tag">{safe(l["key"])}</span>{safe(l["name"].split(":")[0])}</td>'
+        f'<td>{l["tracks"]}</td><td>{fmt_n(l["total_views"])}</td>'
+        f'<td>{fmt_n(l["avg_views"])}</td><td>{fmt_n(l["median_views"])}</td>'
+        f'<td class="up">{fmt_n(l["total_delta7d"]) if l.get("total_delta7d") else "—"}</td>'
+        f'<td class="bar-cell">{_bar(l["total_views"], peak)}</td></tr>'
+        for l in lines
+    )
+    compare = f"""
+  <h3>라인별 비교</h3>
+  <div class="stat-scroll"><table class="stat-table">
+    <thead><tr><th>라인</th><th>곡수</th><th>누적 재생</th><th>평균</th><th>중앙값</th><th>7일 증가</th><th></th></tr></thead>
+    <tbody>{rows}</tbody>
+  </table></div>"""
+
+    # ── 최다 재생 TOP
+    pool = [{**t, "line": l["key"]} for l in lines for t in l.get("top_by_views", [])]
+    pool.sort(key=lambda t: -(t.get("views") or 0))
+    top = pool[:10]
+    tpeak = top[0]["views"] if top else 0
+    top_rows = "".join(
+        f'<tr><td class="name"><span class="line-tag">{safe(t["line"])}</span>'
+        f'{safe(t["artist"])} — {safe(t["title"])}</td>'
+        f'<td>{fmt_n(t["views"])}</td><td class="bar-cell">{_bar(t["views"] or 0, tpeak)}</td></tr>'
+        for t in top
+    )
+    most_played = f"""
+  <h3>최다 재생 트랙</h3>
+  <div class="stat-scroll"><table class="stat-table">
+    <thead><tr><th>트랙</th><th>재생수</th><th></th></tr></thead>
+    <tbody>{top_rows}</tbody>
+  </table></div>"""
+
+    # ── 급상승 (증가율)
+    rising_pool = [{**t, "line": l["key"]} for l in lines for t in l.get("top_by_growth", [])
+                   if t.get("growth7d") is not None]
+    rising_pool.sort(key=lambda t: -t["growth7d"])
+    if rising_pool:
+        rrows = "".join(
+            f'<tr><td class="name"><span class="line-tag">{safe(t["line"])}</span>'
+            f'{safe(t["artist"])} — {safe(t["title"])}</td>'
+            f'<td>{fmt_n(t["views"])}</td><td class="up">{fmt_pct(t["growth7d"])}</td>'
+            f'<td class="up">+{fmt_n(t.get("delta7d"))}</td></tr>'
+            for t in rising_pool[:10]
+        )
+        rising = f"""
+  <h3>급상승 트랙 (7일)</h3>
+  <div class="stat-scroll"><table class="stat-table">
+    <thead><tr><th>트랙</th><th>재생수</th><th>증가율</th><th>증가량</th></tr></thead>
+    <tbody>{rrows}</tbody>
+  </table></div>"""
+    else:
+        rising = ('\n  <h3>급상승 트랙 (7일)</h3>\n  <p class="note">증가율은 이틀 이상 수집된 뒤부터 표시됩니다 '
+                  f'(현재 {stats.get("history_days", 0)}일치).</p>')
+
+    # ── 아티스트
+    art: dict[str, dict] = {}
+    for l in lines:
+        for a in l.get("top_artists", []):
+            cur = art.setdefault(a["name"], {"tracks": 0, "views": 0})
+            cur["tracks"] += a["tracks"]
+            cur["views"] += a["views"]
+    ranked = sorted(art.items(), key=lambda kv: -kv[1]["views"])[:10]
+    apeak = ranked[0][1]["views"] if ranked else 0
+    arows = "".join(
+        f'<tr><td class="name">{safe(n)}</td><td>{v["tracks"]}</td>'
+        f'<td>{fmt_n(v["views"])}</td><td class="bar-cell">{_bar(v["views"], apeak)}</td></tr>'
+        for n, v in ranked
+    )
+    artists_html = f"""
+  <h3>아티스트 TOP 10</h3>
+  <div class="stat-scroll"><table class="stat-table">
+    <thead><tr><th>아티스트</th><th>수록곡</th><th>누적 재생</th><th></th></tr></thead>
+    <tbody>{arows}</tbody>
+  </table></div>"""
+
+    # ── 발매 연도
+    years: dict[str, int] = {}
+    for l in lines:
+        for y, c in (l.get("years") or {}).items():
+            years[y] = years.get(y, 0) + c
+    ypeak = max(years.values(), default=0)
+    yrows = "".join(
+        f'<tr><td class="name">{safe(y)}</td><td>{c}곡</td>'
+        f'<td class="bar-cell">{_bar(c, ypeak)}</td></tr>'
+        for y, c in sorted(years.items(), reverse=True)[:8]
+    )
+    years_html = f"""
+  <h3>발매 연도 분포</h3>
+  <div class="stat-scroll"><table class="stat-table">
+    <thead><tr><th>연도</th><th>곡수</th><th></th></tr></thead>
+    <tbody>{yrows}</tbody>
+  </table></div>""" if years else ""
+
+    # ── 방문자 지역
+    countries = (visitors or {}).get("countries") or []
+    if countries:
+        total_v = sum(c.get("count", 0) for c in countries) or 1
+        cpeak = max(c.get("count", 0) for c in countries)
+        crows = "".join(
+            f'<tr><td class="name">{safe(c.get("name") or c.get("code", "?"))}</td>'
+            f'<td>{c.get("count", 0):,}</td><td>{c.get("count", 0)/total_v*100:.1f}%</td>'
+            f'<td class="bar-cell">{_bar(c.get("count", 0), cpeak)}</td></tr>'
+            for c in countries[:10]
+        )
+        period = safe(str((visitors or {}).get("period", "")))
+        region = f"""
+  <h3>방문자 지역{f' ({period})' if period else ''}</h3>
+  <div class="stat-scroll"><table class="stat-table">
+    <thead><tr><th>국가</th><th>방문</th><th>비중</th><th></th></tr></thead>
+    <tbody>{crows}</tbody>
+  </table></div>"""
+    else:
+        region = ('\n  <h3>방문자 지역</h3>\n  <p class="note">방문자 분석을 아직 연결하지 않았습니다. '
+                  'analytics.json을 설정하면 국가별 방문 분포가 여기에 표시됩니다.</p>')
+
+    return f"""
+<section id="stats">
+  <h2>플레이리스트 분석</h2>
+  <div class="kpi-grid">{kpi_html}</div>
+  {compare}
+  {most_played}
+  {rising}
+  {artists_html}
+  {years_html}
+  {region}
+  <p class="note">재생수는 YouTube 공개 조회수 기준이며 매일 자동으로 갱신됩니다.</p>
+</section>
+"""
+
+
 def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> str:
     canonical = site_url.rstrip("/") + "/"
     cover = "weekly_cover.png"
@@ -400,6 +633,8 @@ def render_index(tracks: list, moods: dict, site_url: str, out_root: Path) -> st
   <h2>전체 트랙리스트 ({len(tracks)}곡)</h2>
   {render_tracklist(tracks)}
 </section>
+
+{render_stats_section(STATS, VISITORS)}
 
 {render_faq_html(home_faq)}
 """
@@ -1148,7 +1383,7 @@ def add_new_weekly_post(out: Path, tracks: list) -> str:
 
 
 def main():
-    global FORCE_OG, VIDEO_META, ARTIST_SLUGS
+    global FORCE_OG, VIDEO_META, ARTIST_SLUGS, STATS, VISITORS, ANALYTICS
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", default="https://minsungkwon-bit.github.io")
     ap.add_argument("--out", default=str(ROOT))
@@ -1180,6 +1415,17 @@ def main():
     meta_file = ROOT / "video_meta.json"
     if meta_file.exists():
         VIDEO_META = json.loads(meta_file.read_text(encoding="utf-8"))
+
+    # 분석 섹션 데이터 (모두 선택). 없으면 해당 부분만 빠지고 빌드는 계속된다.
+    for name, target in (("stats.json", "STATS"), ("visitors.json", "VISITORS"),
+                         ("analytics.json", "ANALYTICS")):
+        f = ROOT / name
+        if not f.exists():
+            continue
+        try:
+            globals()[target] = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            print(f"⚠ {name} 파싱 실패, 건너뜀: {e}")
 
     print(f"[1] 도메인: {args.domain}")
     print(f"[2] 트랙 {len(tracks)}개 / 무드 {len(moods)}개 / 가사 {len(lyrics_db)}개 로드")

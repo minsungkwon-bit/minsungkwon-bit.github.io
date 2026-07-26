@@ -1,0 +1,485 @@
+{
+  "generated_at": "2026-07-26T14:43:46",
+  "lines": [
+    {
+      "key": "slow",
+      "name": "Mr. Slow: Late Night K-Indie & Chill R&B",
+      "tracks": 65,
+      "counted": 65,
+      "total_views": 50715536,
+      "avg_views": 780239,
+      "median_views": 324558,
+      "max_views": 9209320,
+      "avg_length_sec": 188,
+      "total_delta7d": 0,
+      "top_by_views": [
+        {
+          "videoId": "Ep6o9_n0taU",
+          "title": "Rainy day (feat. ASH ISLAND & Skinny Brown)",
+          "artist": "PATEKO",
+          "views": 9209320,
+          "lengthSeconds": 220,
+          "published": "2025-10-31"
+        },
+        {
+          "videoId": "BUCFWJ2lIdU",
+          "title": "Sorrow at my door (PROD. Rocoberry) (슬픔이 찾아와서 그래 (PROD. 로코베리))",
+          "artist": "LAS",
+          "views": 8679293,
+          "lengthSeconds": 198,
+          "published": "2024-03-06"
+        },
+        {
+          "videoId": "6uVM3lUdZ60",
+          "title": "이제 우리 꿈에서만 만나",
+          "artist": "Yyeon",
+          "views": 4160780,
+          "lengthSeconds": 140,
+          "published": "2024-12-31"
+        },
+        {
+          "videoId": "S-59k4fYdk0",
+          "title": "Loop",
+          "artist": "hartts",
+          "views": 2970846,
+          "lengthSeconds": 227,
+          "published": "2023-03-09"
+        },
+        {
+          "videoId": "fkfxU9Hl0lg",
+          "title": "decaffeine (feat. BB)",
+          "artist": "Option",
+          "views": 2876561,
+          "lengthSeconds": 197,
+          "published": "2022-08-20"
+        },
+        {
+          "videoId": "MjEXUVblxiI",
+          "title": "RAINBOW",
+          "artist": "PL",
+          "views": 2382803,
+          "lengthSeconds": 220,
+          "published": "2024-05-31"
+        },
+        {
+          "videoId": "gE8jxB8M_H4",
+          "title": "서로 (Used to be)",
+          "artist": "HAKI",
+          "views": 2030751,
+          "lengthSeconds": 199,
+          "published": "2022-11-08"
+        },
+        {
+          "videoId": "CLDiaP-UN5Y",
+          "title": "Hold On (feat. JAEHA)",
+          "artist": "M1NU",
+          "views": 1150122,
+          "lengthSeconds": 153,
+          "published": "2025-11-12"
+        },
+        {
+          "videoId": "FMrmiDnN8DE",
+          "title": "Dive in (feat. MELOH & Owen)",
+          "artist": "Way Ched",
+          "views": 1134097,
+          "lengthSeconds": 145,
+          "published": "2024-06-11"
+        },
+        {
+          "videoId": "4wlq0InRjWw",
+          "title": "PILLOW",
+          "artist": "PL",
+          "views": 1014295,
+          "lengthSeconds": 188,
+          "published": "2021-07-30"
+        }
+      ],
+      "top_by_growth": [],
+      "top_artists": [
+        {
+          "name": "Ivory",
+          "tracks": 7,
+          "views": 795956
+        },
+        {
+          "name": "floryy",
+          "tracks": 2,
+          "views": 756210
+        },
+        {
+          "name": "1DAY",
+          "tracks": 2,
+          "views": 593979
+        },
+        {
+          "name": "hartts",
+          "tracks": 2,
+          "views": 3196581
+        },
+        {
+          "name": "POW",
+          "tracks": 2,
+          "views": 542401
+        },
+        {
+          "name": "Sumsher",
+          "tracks": 2,
+          "views": 902804
+        },
+        {
+          "name": "L.NDN",
+          "tracks": 2,
+          "views": 426854
+        },
+        {
+          "name": "Option",
+          "tracks": 2,
+          "views": 2900088
+        },
+        {
+          "name": "Yyeon",
+          "tracks": 2,
+          "views": 4192347
+        },
+        {
+          "name": "Vahn",
+          "tracks": 2,
+          "views": 73987
+        }
+      ],
+      "years": {
+        "2021": 2,
+        "2022": 4,
+        "2023": 13,
+        "2024": 9,
+        "2025": 14,
+        "2026": 23
+      }
+    },
+    {
+      "key": "raw",
+      "name": "Mr. Raw: Alternative Rock, Grunge & Indie Classic",
+      "tracks": 15,
+      "counted": 15,
+      "total_views": 158757005,
+      "avg_views": 10583800,
+      "median_views": 261163,
+      "max_views": 122434559,
+      "avg_length_sec": 208,
+      "total_delta7d": 0,
+      "top_by_views": [
+        {
+          "videoId": "c0fHs7THj4k",
+          "title": "Lovefool",
+          "artist": "The Cardigans",
+          "views": 122434559,
+          "lengthSeconds": 194,
+          "published": "2019-01-31"
+        },
+        {
+          "videoId": "38ICl7_UvEI",
+          "title": "I Think I Like When It Rains",
+          "artist": "WILLIS",
+          "views": 27091206,
+          "lengthSeconds": 278,
+          "published": "2024-07-17"
+        },
+        {
+          "videoId": "lRVhaR1rWTc",
+          "title": "I Love You So",
+          "artist": "Delorians",
+          "views": 4279873,
+          "lengthSeconds": 184,
+          "published": "2023-12-16"
+        },
+        {
+          "videoId": "iPecXLf6XTY",
+          "title": "Lovers",
+          "artist": "Michael Kaneko",
+          "views": 1682515,
+          "lengthSeconds": 314,
+          "published": "2023-06-06"
+        },
+        {
+          "videoId": "teXToWOu9AQ",
+          "title": "Loverboy",
+          "artist": "A-Wall",
+          "views": 1437327,
+          "lengthSeconds": 225,
+          "published": "2026-05-01"
+        },
+        {
+          "videoId": "CewwmnU-wDU",
+          "title": "Star Love",
+          "artist": "late night drive home",
+          "views": 405308,
+          "lengthSeconds": 219,
+          "published": "2022-02-21"
+        },
+        {
+          "videoId": "a0P1lkTKsBE",
+          "title": "JUNE GLOOM",
+          "artist": "PARTY WAVE, Forrest Frank",
+          "views": 355513,
+          "lengthSeconds": 192,
+          "published": "2026-04-07"
+        },
+        {
+          "videoId": "kN9FMT_0L5U",
+          "title": "Held My Hand",
+          "artist": "Willowake",
+          "views": 261163,
+          "lengthSeconds": 147,
+          "published": "2026-01-22"
+        },
+        {
+          "videoId": "D-gDSAySi_g",
+          "title": "Going to Babble On",
+          "artist": "The Strokes",
+          "views": 219262,
+          "lengthSeconds": 246,
+          "published": "2026-07-20"
+        },
+        {
+          "videoId": "d5NnDC716wg",
+          "title": "Lonely in the Future",
+          "artist": "The Strokes",
+          "views": 191212,
+          "lengthSeconds": 200,
+          "published": "2026-07-20"
+        }
+      ],
+      "top_by_growth": [],
+      "top_artists": [
+        {
+          "name": "The Strokes",
+          "tracks": 2,
+          "views": 410474
+        },
+        {
+          "name": "dyego",
+          "tracks": 1,
+          "views": 49335
+        },
+        {
+          "name": "The Cardigans",
+          "tracks": 1,
+          "views": 122434559
+        },
+        {
+          "name": "Willowake",
+          "tracks": 1,
+          "views": 261163
+        },
+        {
+          "name": "The Symposium",
+          "tracks": 1,
+          "views": 142954
+        },
+        {
+          "name": "A-Wall",
+          "tracks": 1,
+          "views": 1437327
+        },
+        {
+          "name": "Michael Kaneko",
+          "tracks": 1,
+          "views": 1682515
+        },
+        {
+          "name": "Inner Wave",
+          "tracks": 1,
+          "views": 113349
+        },
+        {
+          "name": "PARTY WAVE",
+          "tracks": 1,
+          "views": 355513
+        },
+        {
+          "name": "Forrest Frank",
+          "tracks": 1,
+          "views": 355513
+        }
+      ],
+      "years": {
+        "2019": 1,
+        "2022": 1,
+        "2023": 3,
+        "2024": 2,
+        "2026": 8
+      }
+    },
+    {
+      "key": "low",
+      "name": "Mr. Low: Cozy Indie Pop & Mellow Vibes",
+      "tracks": 50,
+      "counted": 50,
+      "total_views": 747315219,
+      "avg_views": 14946304,
+      "median_views": 900237,
+      "max_views": 314717548,
+      "avg_length_sec": 172,
+      "total_delta7d": 0,
+      "top_by_views": [
+        {
+          "videoId": "O1PkZaFy61Y",
+          "title": "WILDFLOWER",
+          "artist": "Billie Eilish",
+          "views": 314717548,
+          "lengthSeconds": 261,
+          "published": "2024-05-16"
+        },
+        {
+          "videoId": "22VOzqS_9ms",
+          "title": "Falling (Original Song: Harry Styles) by JK of BTS",
+          "artist": "BTS",
+          "views": 101672770,
+          "lengthSeconds": 237,
+          "published": "2021-10-28"
+        },
+        {
+          "videoId": "HJstyRBLqBQ",
+          "title": "I Thought I Saw Your Face Today",
+          "artist": "She & Him",
+          "views": 95729201,
+          "lengthSeconds": 170,
+          "published": "2025-09-10"
+        },
+        {
+          "videoId": "Sk-oVcEL-OA",
+          "title": "Dancing with my phone",
+          "artist": "HYBS",
+          "views": 57185468,
+          "lengthSeconds": 204,
+          "published": "2021-11-24"
+        },
+        {
+          "videoId": "GaZLVPmViTg",
+          "title": "welcome and goodbye",
+          "artist": "Dream, Ivory",
+          "views": 53128472,
+          "lengthSeconds": 141,
+          "published": "2022-10-02"
+        },
+        {
+          "videoId": "QT1Da26s-UA",
+          "title": "Sunsets With You",
+          "artist": "Cliff, Yden",
+          "views": 38114543,
+          "lengthSeconds": 254,
+          "published": "2022-07-17"
+        },
+        {
+          "videoId": "1Mp5UXAUKIM",
+          "title": "You Are the Right One",
+          "artist": "Sports",
+          "views": 13169488,
+          "lengthSeconds": 173,
+          "published": "2020-09-09"
+        },
+        {
+          "videoId": "8K19161fUm8",
+          "title": "Ecstasy",
+          "artist": "Jomo",
+          "views": 12421239,
+          "lengthSeconds": 186,
+          "published": "2022-12-08"
+        },
+        {
+          "videoId": "J4HFNKPzBRw",
+          "title": "Hey Lover!",
+          "artist": "Wabie",
+          "views": 12143085,
+          "lengthSeconds": 163,
+          "published": "2019-06-25"
+        },
+        {
+          "videoId": "xUc7LISGQl8",
+          "title": "Im Sorry Mom",
+          "artist": "Marino",
+          "views": 6745928,
+          "lengthSeconds": 107,
+          "published": "2026-06-11"
+        }
+      ],
+      "top_by_growth": [],
+      "top_artists": [
+        {
+          "name": "Kaive Noir",
+          "tracks": 2,
+          "views": 388179
+        },
+        {
+          "name": "germinie",
+          "tracks": 2,
+          "views": 2683852
+        },
+        {
+          "name": "Pathetic Valentine",
+          "tracks": 1,
+          "views": 143405
+        },
+        {
+          "name": "Sports",
+          "tracks": 1,
+          "views": 13169488
+        },
+        {
+          "name": "Paige",
+          "tracks": 1,
+          "views": 137913
+        },
+        {
+          "name": "Takayoshi",
+          "tracks": 1,
+          "views": 106555
+        },
+        {
+          "name": "She & Him",
+          "tracks": 1,
+          "views": 95729201
+        },
+        {
+          "name": "Landon Barker",
+          "tracks": 1,
+          "views": 328666
+        },
+        {
+          "name": "alan vuong",
+          "tracks": 1,
+          "views": 1291002
+        },
+        {
+          "name": "Wabie",
+          "tracks": 1,
+          "views": 12143085
+        }
+      ],
+      "years": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 3,
+        "2022": 5,
+        "2023": 3,
+        "2024": 4,
+        "2025": 5,
+        "2026": 28
+      }
+    }
+  ],
+  "totals": {
+    "tracks": 130,
+    "total_views": 956787760,
+    "total_delta7d": 0
+  },
+  "chart": [
+    {
+      "date": "2026-07-26",
+      "slow": 50715536,
+      "raw": 158757005,
+      "low": 747315219
+    }
+  ],
+  "history_days": 1
+}
