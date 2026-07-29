@@ -650,11 +650,6 @@
     "artist": "1DAY"
   },
   {
-    "videoId": "S-59k4fYdk0",
-    "title": "Loop",
-    "artist": "hartts"
-  },
-  {
     "videoId": "5yg-cpolSKU",
     "title": "Always Get Your Way (feat. JAEHA)",
     "artist": "Gist"
@@ -668,11 +663,6 @@
     "videoId": "SNWczEyXw3I",
     "title": "PLAVE Yejun, Noah, Eunho (플레이브 예준 노아 은호) -  Alien Language Song Pt. 2 (외계어송2) Eng Lyrics/가사",
     "artist": "kyujun"
-  },
-  {
-    "videoId": "0_unBZW5lGA",
-    "title": "I'm Not Sure (feat. maji)",
-    "artist": "YOUNG"
   },
   {
     "videoId": "XFfurBWciqY",
@@ -703,11 +693,6 @@
     "videoId": "U-8XBE1y02o",
     "title": "It's Strange, With You",
     "artist": "Lee Byeong Chan, LEE JI MIN"
-  },
-  {
-    "videoId": "omrIyF5o7TQ",
-    "title": "i said it",
-    "artist": "Jiselle"
   },
   {
     "videoId": "zBAMu0IoiuQ",
@@ -783,16 +768,6 @@
     "videoId": "CLDiaP-UN5Y",
     "title": "Hold On (feat. JAEHA)",
     "artist": "M1NU"
-  },
-  {
-    "videoId": "DGpDPzRmN78",
-    "title": "10월의 온도",
-    "artist": "SoulTune"
-  },
-  {
-    "videoId": "bgY32_VdKDM",
-    "title": "You Were My World And I Was Your Worst",
-    "artist": "AN2"
   },
   {
     "videoId": "2umaRYsdUGI",
@@ -908,5 +883,45 @@
     "videoId": "Y-cX6zo6YY8",
     "title": "Again",
     "artist": "hartts"
+  },
+  {
+    "videoId": "7RSYjHVuQ4U",
+    "title": "잠들지 마요 (feat. 이형은)",
+    "artist": "사적인 이야기"
+  },
+  {
+    "videoId": "Dm6i1d2c0E8",
+    "title": "I BE LIKE (feat. SOLE)",
+    "artist": "TRADE L"
+  },
+  {
+    "videoId": "z0TI9cAUrLc",
+    "title": "Sip (한 모금)",
+    "artist": "Jung Hyun Jun"
+  },
+  {
+    "videoId": "JLQep3CaONs",
+    "title": "Withered Time",
+    "artist": "hartts"
+  },
+  {
+    "videoId": "u2bO6nlgIoE",
+    "title": "It's Love",
+    "artist": "이야"
+  },
+  {
+    "videoId": "5WBLncC8yF8",
+    "title": "Shout out (feat. GOYO)",
+    "artist": "IGWI"
+  },
+  {
+    "videoId": "uL_s5uh3uyA",
+    "title": "Love&Hate",
+    "artist": "Yyeon"
+  },
+  {
+    "videoId": "0qSI_SNjYBY",
+    "title": "It's Summer (feat. !catch)",
+    "artist": "entoy"
   }
 ]
