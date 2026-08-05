@@ -1,23 +1,155 @@
 {
-  "generated_at": "2026-08-04T10:10:16",
+  "generated_at": "2026-08-05T11:30:26",
   "lines": [
+    {
+      "key": "slow",
+      "name": "Mr. Slow: Late Night K-Indie & Chill R&B",
+      "tracks": 8,
+      "counted": 8,
+      "total_views": 13249731,
+      "avg_views": 1656216,
+      "median_views": 800997,
+      "max_views": 6860177,
+      "avg_length_sec": 180,
+      "total_delta7d": 0,
+      "top_by_views": [
+        {
+          "videoId": "1YahGWCqjRw",
+          "title": "네 옆에 있을 때 (feat. Boramiyu)",
+          "artist": "HAAN, Chan",
+          "views": 6860177,
+          "lengthSeconds": 179,
+          "published": "2025-05-25"
+        },
+        {
+          "videoId": "AJdIRj-71CY",
+          "title": "No Break (feat. Dynamicduo)",
+          "artist": "Crush",
+          "views": 2893123,
+          "lengthSeconds": 196,
+          "published": "2025-10-31"
+        },
+        {
+          "videoId": "e_j7CcJ51IQ",
+          "title": "혹시 우리 (Remember) (feat. Haeun)",
+          "artist": "DAVII",
+          "views": 1305364,
+          "lengthSeconds": 183,
+          "published": "2021-12-14"
+        },
+        {
+          "videoId": "E7XlQx8gqXE",
+          "title": "Paper Cup",
+          "artist": "Forrest Rose",
+          "views": 841828,
+          "lengthSeconds": 162,
+          "published": "2025-10-29"
+        },
+        {
+          "videoId": "sUjhPLauVE4",
+          "title": "Orchestra",
+          "artist": "Red Velvet",
+          "views": 760166,
+          "lengthSeconds": 177,
+          "published": "2026-08-03"
+        },
+        {
+          "videoId": "VWqyGVNJsBU",
+          "title": "Summer Dance",
+          "artist": "NavyQuokka",
+          "views": 383855,
+          "lengthSeconds": 152,
+          "published": "2023-06-29"
+        },
+        {
+          "videoId": "ocrjCuyEFrY",
+          "title": "You Feel Like Summer",
+          "artist": "Jigoooo Radio",
+          "views": 202199,
+          "lengthSeconds": 175,
+          "published": "2026-06-25"
+        },
+        {
+          "videoId": "2bcfrapSqP4",
+          "title": "Universe and Star, Summer and Rain",
+          "artist": "JUNE",
+          "views": 3019,
+          "lengthSeconds": 222,
+          "published": "2026-08-02"
+        }
+      ],
+      "top_by_growth": [],
+      "top_artists": [
+        {
+          "name": "Forrest Rose",
+          "tracks": 1,
+          "views": 841828
+        },
+        {
+          "name": "NavyQuokka",
+          "tracks": 1,
+          "views": 383855
+        },
+        {
+          "name": "HAAN",
+          "tracks": 1,
+          "views": 6860177
+        },
+        {
+          "name": "Chan",
+          "tracks": 1,
+          "views": 6860177
+        },
+        {
+          "name": "Crush",
+          "tracks": 1,
+          "views": 2893123
+        },
+        {
+          "name": "Red Velvet",
+          "tracks": 1,
+          "views": 760166
+        },
+        {
+          "name": "Jigoooo Radio",
+          "tracks": 1,
+          "views": 202199
+        },
+        {
+          "name": "DAVII",
+          "tracks": 1,
+          "views": 1305364
+        },
+        {
+          "name": "JUNE",
+          "tracks": 1,
+          "views": 3019
+        }
+      ],
+      "years": {
+        "2021": 1,
+        "2023": 1,
+        "2025": 3,
+        "2026": 3
+      }
+    },
     {
       "key": "low",
       "name": "Mr. Low: Cozy Indie Pop & Mellow Vibes",
       "tracks": 53,
-      "counted": 52,
-      "total_views": 780482029,
-      "avg_views": 15009269,
-      "median_views": 1169356,
-      "max_views": 317244901,
-      "avg_length_sec": 177,
-      "total_delta7d": 8749373,
+      "counted": 53,
+      "total_views": 782741537,
+      "avg_views": 14768708,
+      "median_views": 1195704,
+      "max_views": 317544669,
+      "avg_length_sec": 176,
+      "total_delta7d": 10657034,
       "top_by_views": [
         {
           "videoId": "O1PkZaFy61Y",
           "title": "WILDFLOWER",
           "artist": "Billie Eilish",
-          "views": 317244901,
+          "views": 317544669,
           "lengthSeconds": 261,
           "published": "2024-05-16"
         },
@@ -25,7 +157,7 @@
           "videoId": "22VOzqS_9ms",
           "title": "Falling (Original Song: Harry Styles) by JK of BTS",
           "artist": "BTS",
-          "views": 102031615,
+          "views": 102084767,
           "lengthSeconds": 237,
           "published": "2021-10-28"
         },
@@ -33,7 +165,7 @@
           "videoId": "HJstyRBLqBQ",
           "title": "I Thought I Saw Your Face Today",
           "artist": "She & Him",
-          "views": 98922352,
+          "views": 99320499,
           "lengthSeconds": 170,
           "published": "2025-09-10"
         },
@@ -41,7 +173,7 @@
           "videoId": "Sk-oVcEL-OA",
           "title": "Dancing with my phone",
           "artist": "HYBS",
-          "views": 57380145,
+          "views": 57405736,
           "lengthSeconds": 204,
           "published": "2021-11-24"
         },
@@ -49,7 +181,7 @@
           "videoId": "GaZLVPmViTg",
           "title": "welcome and goodbye",
           "artist": "Dream, Ivory",
-          "views": 53878010,
+          "views": 53973422,
           "lengthSeconds": 141,
           "published": "2022-10-02"
         },
@@ -57,7 +189,7 @@
           "videoId": "QT1Da26s-UA",
           "title": "Sunsets With You",
           "artist": "Cliff, Yden",
-          "views": 38213428,
+          "views": 38229004,
           "lengthSeconds": 254,
           "published": "2022-07-17"
         },
@@ -65,7 +197,7 @@
           "videoId": "cRVGxc9vSjI",
           "title": "Stress Relief",
           "artist": "late night drive home",
-          "views": 24978210,
+          "views": 25031950,
           "lengthSeconds": 206,
           "published": "2022-02-21"
         },
@@ -73,7 +205,7 @@
           "videoId": "1Mp5UXAUKIM",
           "title": "You Are the Right One",
           "artist": "Sports",
-          "views": 13382982,
+          "views": 13415322,
           "lengthSeconds": 173,
           "published": "2020-09-09"
         },
@@ -81,7 +213,7 @@
           "videoId": "8K19161fUm8",
           "title": "Ecstasy",
           "artist": "Jomo",
-          "views": 12510755,
+          "views": 12528006,
           "lengthSeconds": 186,
           "published": "2022-12-08"
         },
@@ -89,7 +221,7 @@
           "videoId": "xUc7LISGQl8",
           "title": "Im Sorry Mom",
           "artist": "Marino",
-          "views": 8396805,
+          "views": 8573089,
           "lengthSeconds": 107,
           "published": "2026-06-11"
         }
@@ -99,153 +231,153 @@
           "videoId": "3NvP42jU3mU",
           "title": "GLOW",
           "artist": "tbh",
-          "views": 204436,
+          "views": 216425,
           "lengthSeconds": 135,
           "published": "2026-06-25",
-          "delta7d": 76833,
-          "growth7d": 60.21
+          "delta7d": 88822,
+          "growth7d": 69.61
+        },
+        {
+          "videoId": "1lUUe6EvGVI",
+          "title": "Summer Returns",
+          "artist": "John Park",
+          "views": 562158,
+          "lengthSeconds": 163,
+          "published": "2026-07-23",
+          "delta7d": 210311,
+          "growth7d": 59.77
         },
         {
           "videoId": "Eijxm9EHqBI",
           "title": "Coast Is Calling",
           "artist": "someply",
-          "views": 316428,
+          "views": 329903,
           "lengthSeconds": 139,
           "published": "2026-06-11",
-          "delta7d": 98011,
-          "growth7d": 44.87
+          "delta7d": 111486,
+          "growth7d": 51.04
         },
         {
           "videoId": "Wdsis7yiRGg",
           "title": "Asleep Talking",
           "artist": "Magnus Ferrell",
-          "views": 1149670,
+          "views": 1195704,
           "lengthSeconds": 156,
           "published": "2026-04-23",
-          "delta7d": 324759,
-          "growth7d": 39.37
+          "delta7d": 370793,
+          "growth7d": 44.95
         },
         {
           "videoId": "373zZFRooo4",
           "title": "All the Best (feat. Chiruki)",
           "artist": "DannyHO",
-          "views": 789408,
+          "views": 842554,
           "lengthSeconds": 215,
           "published": "2025-09-04",
-          "delta7d": 192781,
-          "growth7d": 32.31
+          "delta7d": 245927,
+          "growth7d": 41.22
         },
         {
           "videoId": "nX2_1Pc-COM",
           "title": "Fell Again",
           "artist": "Cikho",
-          "views": 621706,
+          "views": 644622,
           "lengthSeconds": 162,
           "published": "2026-06-10",
-          "delta7d": 130648,
-          "growth7d": 26.61
+          "delta7d": 153564,
+          "growth7d": 31.27
         },
         {
           "videoId": "U36gQG-w6Do",
           "title": "i kept the light on (Extended Version)",
           "artist": "Don Kai",
-          "views": 400458,
+          "views": 412671,
           "lengthSeconds": 151,
           "published": "2026-03-27",
-          "delta7d": 75247,
-          "growth7d": 23.14
+          "delta7d": 87460,
+          "growth7d": 26.89
         },
         {
           "videoId": "4hcPq1L_YnY",
           "title": "Love",
           "artist": "Kaive Noir",
-          "views": 96720,
+          "views": 99687,
           "lengthSeconds": 227,
           "published": "2026-07-20",
-          "delta7d": 18017,
-          "growth7d": 22.89
+          "delta7d": 20984,
+          "growth7d": 26.66
         },
         {
           "videoId": "fn6X4qPnkYE",
           "title": "Anesthetic",
           "artist": "Evan Pak",
-          "views": 128961,
+          "views": 133491,
           "lengthSeconds": 165,
           "published": "2026-05-05",
-          "delta7d": 20152,
-          "growth7d": 18.52
+          "delta7d": 24682,
+          "growth7d": 22.68
         },
         {
           "videoId": "aOieaWcoPrg",
           "title": "June",
           "artist": "Koven Wei, The Vanished People",
-          "views": 260160,
+          "views": 266389,
           "lengthSeconds": 184,
           "published": "2026-06-25",
-          "delta7d": 37838,
-          "growth7d": 17.02
-        },
-        {
-          "videoId": "lQB7lFZMA80",
-          "title": "Text Me",
-          "artist": "Kaive Noir",
-          "views": 575272,
-          "lengthSeconds": 150,
-          "published": "2026-07-20",
-          "delta7d": 79825,
-          "growth7d": 16.11
+          "delta7d": 44067,
+          "growth7d": 19.82
         }
       ],
       "top_artists": [
         {
           "name": "Kaive Noir",
           "tracks": 2,
-          "views": 671992
+          "views": 686490
         },
         {
           "name": "germinie",
           "tracks": 2,
-          "views": 3123536
+          "views": 3176209
         },
         {
           "name": "DannyHO",
           "tracks": 1,
-          "views": 789408
+          "views": 842554
         },
         {
           "name": "Some Sprouts",
           "tracks": 1,
-          "views": 1847925
+          "views": 1883220
         },
         {
           "name": "innlet",
           "tracks": 1,
-          "views": 71048
+          "views": 71772
         },
         {
           "name": "RADi",
           "tracks": 1,
-          "views": 2602995
+          "views": 2606932
         },
         {
           "name": "tbh",
           "tracks": 1,
-          "views": 204436
+          "views": 216425
         },
         {
           "name": "late night drive home",
           "tracks": 1,
-          "views": 24978210
+          "views": 25031950
         },
         {
           "name": "VAIL",
           "tracks": 1,
-          "views": 83040
+          "views": 83178
         },
         {
           "name": "WNRDA",
           "tracks": 1,
-          "views": 942162
+          "views": 943138
         }
       ],
       "years": {
@@ -255,14 +387,14 @@
         "2023": 4,
         "2024": 5,
         "2025": 3,
-        "2026": 26
+        "2026": 27
       }
     }
   ],
   "totals": {
-    "tracks": 53,
-    "total_views": 780482029,
-    "total_delta7d": 8749373
+    "tracks": 61,
+    "total_views": 795991268,
+    "total_delta7d": 10657034
   },
   "chart": [
     {
@@ -305,7 +437,12 @@
     {
       "date": "2026-08-04",
       "low": 780482029
+    },
+    {
+      "date": "2026-08-05",
+      "slow": 13249731,
+      "low": 782741537
     }
   ],
-  "history_days": 8
+  "history_days": 9
 }
