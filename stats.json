@@ -1,31 +1,23 @@
 {
-  "generated_at": "2026-08-22T09:04:04",
+  "generated_at": "2026-08-23T09:19:59",
   "lines": [
     {
       "key": "slow",
       "name": "Mr. Slow: Late Night K-Indie & Chill R&B",
-      "tracks": 65,
-      "counted": 65,
-      "total_views": 168519837,
-      "avg_views": 2592612,
-      "median_views": 241085,
-      "max_views": 32553908,
-      "avg_length_sec": 183,
-      "total_delta7d": 1858534,
+      "tracks": 68,
+      "counted": 68,
+      "total_views": 114881923,
+      "avg_views": 1689440,
+      "median_views": 166237,
+      "max_views": 27042776,
+      "avg_length_sec": 180,
+      "total_delta7d": 2118678,
       "top_by_views": [
-        {
-          "videoId": "Fdztqh4MQS8",
-          "title": "One Small Day",
-          "artist": "PATEKO, Jayci yucca (제이씨 유카), Kid Wine",
-          "views": 32553908,
-          "lengthSeconds": 253,
-          "published": "2022-12-29"
-        },
         {
           "videoId": "NOlIxr8ygcI",
           "title": "Love over hip hop, money over love (feat. Basick)",
           "artist": "noahjooda",
-          "views": 27012045,
+          "views": 27042776,
           "lengthSeconds": 234,
           "published": "2022-03-13"
         },
@@ -33,23 +25,15 @@
           "videoId": "0BDoqTWFL8U",
           "title": "don't leave me (거짓말처럼)",
           "artist": "TOIL, Gist",
-          "views": 19688938,
+          "views": 19704163,
           "lengthSeconds": 183,
           "published": "2024-05-17"
-        },
-        {
-          "videoId": "-l4oL8nEwag",
-          "title": "End Better (feat. Skinny Brown)",
-          "artist": "TOIL, Gist",
-          "views": 19063214,
-          "lengthSeconds": 224,
-          "published": "2023-01-27"
         },
         {
           "videoId": "CR_fsOGEig8",
           "title": "i need you more (feat. Suyo)",
           "artist": "Sweet The Kid",
-          "views": 16629185,
+          "views": 16641620,
           "lengthSeconds": 184,
           "published": "2022-03-19"
         },
@@ -57,23 +41,15 @@
           "videoId": "-mD9vXVv0Xs",
           "title": "Inception (feat. 1ho & Chan)",
           "artist": "Airman",
-          "views": 8964557,
+          "views": 8967617,
           "lengthSeconds": 201,
           "published": "2018-12-18"
-        },
-        {
-          "videoId": "1aPb6EyK5j0",
-          "title": "Last Moments",
-          "artist": "ASH ISLAND",
-          "views": 7341185,
-          "lengthSeconds": 196,
-          "published": "2023-05-03"
         },
         {
           "videoId": "BoUzlB98AhY",
           "title": "anyhow (feat. ZENE THE ZILLA)",
           "artist": "TOIL, Gist",
-          "views": 6324128,
+          "views": 6331906,
           "lengthSeconds": 211,
           "published": "2025-02-04"
         },
@@ -81,181 +57,205 @@
           "videoId": "_PZ-ot4FIyg",
           "title": "Star",
           "artist": "Halsoon",
-          "views": 4783163,
+          "views": 4787048,
           "lengthSeconds": 167,
           "published": "2025-07-23"
+        },
+        {
+          "videoId": "zebNXkuSH-4",
+          "title": "The girl in my memories (Digging club Seoul Ver.) (추억속의 그대(디깅클럽서울 Ver.))",
+          "artist": "jeebanoff",
+          "views": 4090826,
+          "lengthSeconds": 198,
+          "published": "2022-12-31"
         },
         {
           "videoId": "DnL2kXqQdpw",
           "title": "꽃 (Prod. Inf)",
           "artist": "안재우",
-          "views": 3549729,
+          "views": 3551720,
           "lengthSeconds": 197,
           "published": "2024-01-18"
+        },
+        {
+          "videoId": "yRqq-BZ2rTE",
+          "title": "SAY MY NAME",
+          "artist": "DIMO REX",
+          "views": 3452039,
+          "lengthSeconds": 147,
+          "published": "2026-04-10"
+        },
+        {
+          "videoId": "Of1xqxq2_Bk",
+          "title": "Why Do You Love Me (feat. Ashley Alisha & Sonny Zero)",
+          "artist": "Seo actor, Dept",
+          "views": 2486742,
+          "lengthSeconds": 190,
+          "published": "2021-10-17"
         }
       ],
       "top_by_growth": [
         {
-          "videoId": "wxZ0wAjD5zE",
-          "title": "WANT U BACK (feat. TRADE L)",
-          "artist": "JAEHA",
-          "views": 38622,
-          "lengthSeconds": 160,
-          "published": "2026-08-14",
-          "delta7d": 33420,
-          "growth7d": 642.45
-        },
-        {
           "videoId": "v0osSqmiliA",
           "title": "행복이 그거래요",
           "artist": "E:um",
-          "views": 22030,
+          "views": 43746,
           "lengthSeconds": 191,
           "published": "2026-08-16",
-          "delta7d": 18094,
-          "growth7d": 459.71
+          "delta7d": 39810,
+          "growth7d": 1011.43
         },
         {
-          "videoId": "h2kGfADuB_8",
-          "title": "I'll Be Around",
-          "artist": "Jigoooo Radio",
-          "views": 102915,
-          "lengthSeconds": 193,
+          "videoId": "wxZ0wAjD5zE",
+          "title": "WANT U BACK (feat. TRADE L)",
+          "artist": "JAEHA",
+          "views": 43348,
+          "lengthSeconds": 160,
           "published": "2026-08-14",
-          "delta7d": 81537,
-          "growth7d": 381.41
-        },
-        {
-          "videoId": "UbZX976jdaA",
-          "title": "시간은 공평하게 흐른다",
-          "artist": "jehoda",
-          "views": 33395,
-          "lengthSeconds": 204,
-          "published": "2026-08-11",
-          "delta7d": 25962,
-          "growth7d": 349.28
+          "delta7d": 38146,
+          "growth7d": 733.29
         },
         {
           "videoId": "uW-vU-MM-Uk",
           "title": "지나간 시간보다 다가올 날들이 행복하길",
           "artist": "E:um",
-          "views": 60629,
+          "views": 85390,
           "lengthSeconds": 190,
           "published": "2026-08-16",
-          "delta7d": 46983,
-          "growth7d": 344.3
+          "delta7d": 71744,
+          "growth7d": 525.75
         },
         {
-          "videoId": "1U-5AL9RMUQ",
-          "title": "Breathe",
-          "artist": "DONGHYEON & Etham",
-          "views": 112249,
-          "lengthSeconds": 194,
-          "published": "2026-08-13",
-          "delta7d": 67923,
-          "growth7d": 153.24
+          "videoId": "h2kGfADuB_8",
+          "title": "I'll Be Around",
+          "artist": "Jigoooo Radio",
+          "views": 107066,
+          "lengthSeconds": 193,
+          "published": "2026-08-14",
+          "delta7d": 85688,
+          "growth7d": 400.82
+        },
+        {
+          "videoId": "UbZX976jdaA",
+          "title": "시간은 공평하게 흐른다",
+          "artist": "jehoda",
+          "views": 34013,
+          "lengthSeconds": 204,
+          "published": "2026-08-11",
+          "delta7d": 26580,
+          "growth7d": 357.59
         },
         {
           "videoId": "wDlgvn_uApo",
           "title": "Still Missing You",
           "artist": "PUNCH",
-          "views": 485751,
+          "views": 614618,
           "lengthSeconds": 114,
           "published": "2026-08-16",
-          "delta7d": 292209,
-          "growth7d": 150.98
+          "delta7d": 421076,
+          "growth7d": 217.56
         },
         {
-          "videoId": "w6uaRAJLcxI",
-          "title": "Longing",
-          "artist": "Kim Siwon",
-          "views": 41821,
-          "lengthSeconds": 151,
-          "published": "2025-11-01",
-          "delta7d": 18471,
-          "growth7d": 79.1
+          "videoId": "1U-5AL9RMUQ",
+          "title": "Breathe",
+          "artist": "DONGHYEON & Etham",
+          "views": 119078,
+          "lengthSeconds": 194,
+          "published": "2026-08-13",
+          "delta7d": 74752,
+          "growth7d": 168.64
         },
         {
-          "videoId": "jbiXssVbdzM",
-          "title": "Boy",
-          "artist": "Kim Siwon",
-          "views": 52215,
-          "lengthSeconds": 156,
-          "published": "2025-05-03",
-          "delta7d": 19207,
-          "growth7d": 58.19
+          "videoId": "vH0-3v67QH0",
+          "title": "놓아주자 (feat. Cha Woo Joo)",
+          "artist": "Vahn",
+          "views": 6448,
+          "lengthSeconds": 161,
+          "published": "2026-08-18",
+          "delta7d": 3031,
+          "growth7d": 88.7
         },
         {
-          "videoId": "9GbvM47rOT4",
-          "title": "rainy season",
-          "artist": "JEONG EUNJI",
-          "views": 53253,
-          "lengthSeconds": 213,
-          "published": "2026-08-11",
-          "delta7d": 17932,
-          "growth7d": 50.77
+          "videoId": "HnBEoOlYL6s",
+          "title": "Say I'm Crazy",
+          "artist": "김승민",
+          "views": 84796,
+          "lengthSeconds": 187,
+          "published": "2026-08-18",
+          "delta7d": 38347,
+          "growth7d": 82.56
+        },
+        {
+          "videoId": "wSa-fP5LVok",
+          "title": "마지막일 줄 알았더라면 (feat. Donutman)",
+          "artist": "seizetheday",
+          "views": 12602,
+          "lengthSeconds": 141,
+          "published": "2026-08-17",
+          "delta7d": 5603,
+          "growth7d": 80.05
         }
       ],
       "top_artists": [
         {
           "name": "Kim Siwon",
-          "tracks": 6,
-          "views": 238617
-        },
-        {
-          "name": "TOIL",
-          "tracks": 3,
-          "views": 45076280
-        },
-        {
-          "name": "Gist",
-          "tracks": 3,
-          "views": 45076280
-        },
-        {
-          "name": "안재우",
-          "tracks": 2,
-          "views": 4167099
-        },
-        {
-          "name": "Oh!",
-          "tracks": 2,
-          "views": 72863
-        },
-        {
-          "name": "Jae Woo AN",
-          "tracks": 2,
-          "views": 1919205
+          "tracks": 5,
+          "views": 204926
         },
         {
           "name": "E:um",
           "tracks": 2,
-          "views": 82659
+          "views": 129136
         },
         {
-          "name": "Shane",
-          "tracks": 1,
-          "views": 57485
+          "name": "Oh!",
+          "tracks": 2,
+          "views": 73088
         },
         {
-          "name": "JUEUN",
-          "tracks": 1,
-          "views": 529989
+          "name": "HAAN",
+          "tracks": 2,
+          "views": 707679
         },
         {
-          "name": "WOO",
+          "name": "TOIL",
+          "tracks": 2,
+          "views": 26036069
+        },
+        {
+          "name": "Gist",
+          "tracks": 2,
+          "views": 26036069
+        },
+        {
+          "name": "LEE BUM JUN",
+          "tracks": 2,
+          "views": 346435
+        },
+        {
+          "name": "Jae Woo AN",
+          "tracks": 2,
+          "views": 1924446
+        },
+        {
+          "name": "안재우",
+          "tracks": 2,
+          "views": 4169351
+        },
+        {
+          "name": "Halsoon",
           "tracks": 1,
-          "views": 54410
+          "views": 4787048
         }
       ],
       "years": {
         "2018": 1,
         "2021": 1,
         "2022": 6,
-        "2023": 5,
-        "2024": 8,
+        "2023": 4,
+        "2024": 9,
         "2025": 15,
-        "2026": 29
+        "2026": 32
       }
     },
     {
@@ -263,18 +263,18 @@
       "name": "Mr. Low: Cozy Indie Pop & Mellow Vibes",
       "tracks": 54,
       "counted": 54,
-      "total_views": 889360088,
-      "avg_views": 16469631,
-      "median_views": 1597054,
-      "max_views": 292687842,
+      "total_views": 890682566,
+      "avg_views": 16494121,
+      "median_views": 1605218,
+      "max_views": 292905201,
       "avg_length_sec": 177,
-      "total_delta7d": 9849649,
+      "total_delta7d": 9845092,
       "top_by_views": [
         {
           "videoId": "cYT325Fe9zU",
           "title": "Freaks",
           "artist": "Surf Curse",
-          "views": 292687842,
+          "views": 292905201,
           "lengthSeconds": 147,
           "published": "2021-05-14"
         },
@@ -282,7 +282,7 @@
           "videoId": "HJstyRBLqBQ",
           "title": "I Thought I Saw Your Face Today",
           "artist": "She & Him",
-          "views": 105614798,
+          "views": 105969433,
           "lengthSeconds": 170,
           "published": "2025-09-10"
         },
@@ -290,7 +290,7 @@
           "videoId": "22VOzqS_9ms",
           "title": "Falling (Original Song: Harry Styles) by JK of BTS",
           "artist": "BTS",
-          "views": 102829068,
+          "views": 102879093,
           "lengthSeconds": 237,
           "published": "2021-10-28"
         },
@@ -298,7 +298,7 @@
           "videoId": "Sk-oVcEL-OA",
           "title": "Dancing with my phone",
           "artist": "HYBS",
-          "views": 57790293,
+          "views": 57813833,
           "lengthSeconds": 204,
           "published": "2021-11-24"
         },
@@ -306,7 +306,7 @@
           "videoId": "GaZLVPmViTg",
           "title": "welcome and goodbye",
           "artist": "Dream, Ivory",
-          "views": 55482810,
+          "views": 55569164,
           "lengthSeconds": 141,
           "published": "2022-10-02"
         },
@@ -314,7 +314,7 @@
           "videoId": "hzO05Nb4_Hg",
           "title": "Disco",
           "artist": "Surf Curse",
-          "views": 42018522,
+          "views": 42065359,
           "lengthSeconds": 153,
           "published": "2021-06-29"
         },
@@ -322,7 +322,7 @@
           "videoId": "1w01hsQ8ImI",
           "title": "We Belong Together",
           "artist": "Los Lobos",
-          "views": 41468746,
+          "views": 41494289,
           "lengthSeconds": 120,
           "published": "2014-08-19"
         },
@@ -330,7 +330,7 @@
           "videoId": "QT1Da26s-UA",
           "title": "Sunsets With You",
           "artist": "Cliff, Yden",
-          "views": 38485289,
+          "views": 38502735,
           "lengthSeconds": 254,
           "published": "2022-07-17"
         },
@@ -338,7 +338,7 @@
           "videoId": "-eQcHcINM2M",
           "title": "愛は勝つ - Aiwa Katsu",
           "artist": "Kan",
-          "views": 31208982,
+          "views": 31234264,
           "lengthSeconds": 248,
           "published": "2018-10-28"
         },
@@ -346,7 +346,7 @@
           "videoId": "cRVGxc9vSjI",
           "title": "Stress Relief",
           "artist": "late night drive home",
-          "views": 25842206,
+          "views": 25890122,
           "lengthSeconds": 206,
           "published": "2022-02-21"
         }
@@ -356,153 +356,153 @@
           "videoId": "0viMwE2e4mU",
           "title": "Scenario",
           "artist": "ONEWE",
-          "views": 67416,
+          "views": 79766,
           "lengthSeconds": 223,
           "published": "2026-08-19",
-          "delta7d": 58789,
-          "growth7d": 681.45
-        },
-        {
-          "videoId": "373zZFRooo4",
-          "title": "All the Best (feat. Chiruki)",
-          "artist": "DannyHO",
-          "views": 1333705,
-          "lengthSeconds": 215,
-          "published": "2025-09-04",
-          "delta7d": 225631,
-          "growth7d": 20.36
-        },
-        {
-          "videoId": "nX2_1Pc-COM",
-          "title": "Fell Again",
-          "artist": "Cikho",
-          "views": 931458,
-          "lengthSeconds": 162,
-          "published": "2026-06-10",
-          "delta7d": 147722,
-          "growth7d": 18.85
+          "delta7d": 71139,
+          "growth7d": 824.61
         },
         {
           "videoId": "quCSDgvaD8s",
           "title": "Beauty Was Made for You",
           "artist": "LOWERCASE committee",
-          "views": 16436,
+          "views": 16954,
           "lengthSeconds": 188,
           "published": "2026-08-11",
-          "delta7d": 2502,
-          "growth7d": 17.96
+          "delta7d": 3020,
+          "growth7d": 21.67
+        },
+        {
+          "videoId": "373zZFRooo4",
+          "title": "All the Best (feat. Chiruki)",
+          "artist": "DannyHO",
+          "views": 1369195,
+          "lengthSeconds": 215,
+          "published": "2025-09-04",
+          "delta7d": 223473,
+          "growth7d": 19.5
+        },
+        {
+          "videoId": "nX2_1Pc-COM",
+          "title": "Fell Again",
+          "artist": "Cikho",
+          "views": 950018,
+          "lengthSeconds": 162,
+          "published": "2026-06-10",
+          "delta7d": 149248,
+          "growth7d": 18.64
         },
         {
           "videoId": "hb6avUISmP4",
           "title": "Better with You",
           "artist": "Jeff Bernat",
-          "views": 764999,
+          "views": 782709,
           "lengthSeconds": 186,
           "published": "2026-04-21",
-          "delta7d": 112749,
-          "growth7d": 17.29
+          "delta7d": 120480,
+          "growth7d": 18.19
         },
         {
           "videoId": "Wdsis7yiRGg",
           "title": "Asleep Talking",
           "artist": "Magnus Ferrell",
-          "views": 1704152,
+          "views": 1738152,
           "lengthSeconds": 156,
           "published": "2026-04-23",
-          "delta7d": 250126,
-          "growth7d": 17.2
+          "delta7d": 245070,
+          "growth7d": 16.41
         },
         {
           "videoId": "fn6X4qPnkYE",
           "title": "Anesthetic",
           "artist": "Evan Pak",
-          "views": 183399,
+          "views": 186192,
           "lengthSeconds": 165,
           "published": "2026-05-05",
-          "delta7d": 26275,
-          "growth7d": 16.72
+          "delta7d": 24819,
+          "growth7d": 15.38
         },
         {
           "videoId": "3NvP42jU3mU",
           "title": "GLOW",
           "artist": "tbh",
-          "views": 328664,
+          "views": 333343,
           "lengthSeconds": 135,
           "published": "2026-06-25",
-          "delta7d": 45303,
-          "growth7d": 15.99
-        },
-        {
-          "videoId": "Eijxm9EHqBI",
-          "title": "Coast Is Calling",
-          "artist": "someply",
-          "views": 450962,
-          "lengthSeconds": 139,
-          "published": "2026-06-11",
-          "delta7d": 51948,
-          "growth7d": 13.02
+          "delta7d": 41513,
+          "growth7d": 14.23
         },
         {
           "videoId": "rIn8gkb14xY",
           "title": "it’s like i’m not even here",
           "artist": "mthu",
-          "views": 5851406,
+          "views": 5944102,
           "lengthSeconds": 98,
           "published": "2026-05-26",
-          "delta7d": 668725,
-          "growth7d": 12.9
+          "delta7d": 678774,
+          "growth7d": 12.89
+        },
+        {
+          "videoId": "Eijxm9EHqBI",
+          "title": "Coast Is Calling",
+          "artist": "someply",
+          "views": 458501,
+          "lengthSeconds": 139,
+          "published": "2026-06-11",
+          "delta7d": 51777,
+          "growth7d": 12.73
         }
       ],
       "top_artists": [
         {
           "name": "Surf Curse",
           "tracks": 2,
-          "views": 334706364
+          "views": 334970560
         },
         {
           "name": "PATEKO",
           "tracks": 1,
-          "views": 557933
+          "views": 560413
         },
         {
           "name": "half·alive",
           "tracks": 1,
-          "views": 3178085
+          "views": 3180999
         },
         {
           "name": "Vansire",
           "tracks": 1,
-          "views": 4173586
+          "views": 4180227
         },
         {
           "name": "Jeff Bernat",
           "tracks": 1,
-          "views": 764999
+          "views": 782709
         },
         {
           "name": "Evan Pak",
           "tracks": 1,
-          "views": 183399
+          "views": 186192
         },
         {
           "name": "Edgehill",
           "tracks": 1,
-          "views": 186900
+          "views": 187345
         },
         {
           "name": "sueyalike",
           "tracks": 1,
-          "views": 142278
+          "views": 143489
         },
         {
           "name": "late night drive home",
           "tracks": 1,
-          "views": 25842206
+          "views": 25890122
         },
         {
           "name": "Kan",
           "tracks": 1,
-          "views": 31208982
+          "views": 31234264
         }
       ],
       "years": {
@@ -519,9 +519,9 @@
     }
   ],
   "totals": {
-    "tracks": 119,
-    "total_views": 1057879925,
-    "total_delta7d": 11708183
+    "tracks": 122,
+    "total_views": 1005564489,
+    "total_delta7d": 11963770
   },
   "chart": [
     {
@@ -644,7 +644,12 @@
       "date": "2026-08-22",
       "slow": 168519837,
       "low": 889360088
+    },
+    {
+      "date": "2026-08-23",
+      "slow": 114881923,
+      "low": 890682566
     }
   ],
-  "history_days": 24
+  "history_days": 25
 }
