@@ -1,39 +1,31 @@
 {
-  "generated_at": "2026-09-18T11:07:43",
+  "generated_at": "2026-09-19T10:00:48",
   "lines": [
     {
       "key": "slow",
       "name": "Mr. Slow: Late Night K-Indie & Chill R&B",
-      "tracks": 134,
-      "counted": 133,
-      "total_views": 536996161,
-      "avg_views": 4037565,
-      "median_views": 623791,
-      "max_views": 120562061,
+      "tracks": 137,
+      "counted": 137,
+      "total_views": 532057553,
+      "avg_views": 3883631,
+      "median_views": 639573,
+      "max_views": 120638698,
       "avg_length_sec": 189,
-      "total_delta7d": 8845188,
+      "total_delta7d": 8254410,
       "top_by_views": [
         {
           "videoId": "LP0lRsckX1A",
           "title": "인사",
           "artist": "범진(BUMJIN)",
-          "views": 120562061,
+          "views": 120638698,
           "lengthSeconds": 216,
           "published": "2023-08-07"
-        },
-        {
-          "videoId": "Yc4gp6oeN7k",
-          "title": "Skrr (feat. GISELLE)",
-          "artist": "HAON",
-          "views": 39175356,
-          "lengthSeconds": 219,
-          "published": "2024-11-20"
         },
         {
           "videoId": "QT1Da26s-UA",
           "title": "Sunsets With You",
           "artist": "Cliff, Yden",
-          "views": 38864746,
+          "views": 38874434,
           "lengthSeconds": 254,
           "published": "2022-07-17"
         },
@@ -41,7 +33,7 @@
           "videoId": "E5BLkMGxDgQ",
           "title": "Forever Has Always Been",
           "artist": "Redoor",
-          "views": 29835231,
+          "views": 29937224,
           "lengthSeconds": 237,
           "published": "2024-02-29"
         },
@@ -49,7 +41,7 @@
           "videoId": "NOlIxr8ygcI",
           "title": "Love over hip hop, money over love (feat. Basick)",
           "artist": "noahjooda",
-          "views": 27820830,
+          "views": 27853074,
           "lengthSeconds": 234,
           "published": "2022-03-13"
         },
@@ -57,7 +49,7 @@
           "videoId": "gqX5BTVAeJ4",
           "title": "By Your Side",
           "artist": "Crush",
-          "views": 22698469,
+          "views": 22710098,
           "lengthSeconds": 231,
           "published": "2024-04-17"
         },
@@ -65,7 +57,7 @@
           "videoId": "eC9HempRRlg",
           "title": "fall",
           "artist": "Crush",
-          "views": 21132828,
+          "views": 21140107,
           "lengthSeconds": 232,
           "published": "2018-06-03"
         },
@@ -73,7 +65,7 @@
           "videoId": "WG6czZu01mw",
           "title": "The Star",
           "artist": "dori",
-          "views": 17163424,
+          "views": 17171637,
           "lengthSeconds": 216,
           "published": "2023-03-29"
         },
@@ -81,7 +73,7 @@
           "videoId": "c9HvbzvcAJE",
           "title": "만년설 (Everlasting)",
           "artist": "N.Flying",
-          "views": 16933915,
+          "views": 16958423,
           "lengthSeconds": 257,
           "published": "2025-05-28"
         },
@@ -89,9 +81,17 @@
           "videoId": "FtUz8Q8eCG0",
           "title": "Silly Silly Love",
           "artist": "Kwon Jin Ah",
-          "views": 16281191,
+          "views": 16288875,
           "lengthSeconds": 215,
           "published": "2022-03-31"
+        },
+        {
+          "videoId": "gwOQl2SQdkw",
+          "title": "2 O' CLOCK",
+          "artist": "dori",
+          "views": 15610598,
+          "lengthSeconds": 152,
+          "published": "2022-01-31"
         }
       ],
       "top_by_growth": [
@@ -99,165 +99,165 @@
           "videoId": "CSgZIyvhu1A",
           "title": "Be there (feat. khaki)",
           "artist": "hayawn",
-          "views": 261523,
+          "views": 301589,
           "lengthSeconds": 190,
           "published": "2026-09-11",
-          "delta7d": 243337,
-          "growth7d": 1338.05
+          "delta7d": 283403,
+          "growth7d": 1558.36
         },
         {
           "videoId": "or2hAeUxWu8",
           "title": "So we were (feat. Gist)",
           "artist": "JAEHA",
-          "views": 128920,
+          "views": 150491,
           "lengthSeconds": 170,
           "published": "2026-09-12",
-          "delta7d": 116607,
-          "growth7d": 947.02
+          "delta7d": 138178,
+          "growth7d": 1122.21
+        },
+        {
+          "videoId": "PllLzSLe7dE",
+          "title": "Called it Love",
+          "artist": "FIFTY FIFTY",
+          "views": 60476,
+          "lengthSeconds": 192,
+          "published": "2026-09-18",
+          "delta7d": 51269,
+          "growth7d": 556.85
         },
         {
           "videoId": "lNyEwryauX4",
           "title": "Stay Here",
           "artist": "조민규",
-          "views": 24109,
+          "views": 25091,
           "lengthSeconds": 184,
           "published": "2026-09-10",
-          "delta7d": 20036,
-          "growth7d": 491.92
+          "delta7d": 19750,
+          "growth7d": 369.78
         },
         {
           "videoId": "yZz64cTsSoI",
           "title": "Back to Me",
           "artist": "Rothy",
-          "views": 91032,
+          "views": 92655,
           "lengthSeconds": 179,
           "published": "2026-09-09",
-          "delta7d": 72543,
-          "growth7d": 392.36
-        },
-        {
-          "videoId": "F-y7WmAnfZs",
-          "title": "Stay Beautiful",
-          "artist": "Y:SY",
-          "views": 32160,
-          "lengthSeconds": 183,
-          "published": "2026-09-09",
-          "delta7d": 23398,
-          "growth7d": 267.04
-        },
-        {
-          "videoId": "EJ7hmT2y48Q",
-          "title": "Midnight Memory",
-          "artist": "Forrest Rose",
-          "views": 556696,
-          "lengthSeconds": 203,
-          "published": "2026-09-06",
-          "delta7d": 363602,
-          "growth7d": 188.3
+          "delta7d": 68239,
+          "growth7d": 279.48
         },
         {
           "videoId": "YTi7pjVcUoo",
           "title": "A Love Is Forgotten by Another Love",
           "artist": "김나영",
-          "views": 1849512,
+          "views": 1934875,
           "lengthSeconds": 239,
           "published": "2026-09-03",
-          "delta7d": 1043892,
-          "growth7d": 129.58
+          "delta7d": 995805,
+          "growth7d": 106.04
         },
         {
           "videoId": "YWqtzcjYVAY",
           "title": "I Got Off One Stop Early",
           "artist": "BAM Records",
-          "views": 195481,
+          "views": 205385,
           "lengthSeconds": 167,
           "published": "2026-08-02",
-          "delta7d": 100803,
-          "growth7d": 106.47
-        },
-        {
-          "videoId": "5mESl85XgyI",
-          "title": "11월 11일 (November 11th)",
-          "artist": "Stray Kids",
-          "views": 1770072,
-          "lengthSeconds": 186,
-          "published": "2026-09-09",
-          "delta7d": 910137,
-          "growth7d": 105.84
+          "delta7d": 95194,
+          "growth7d": 86.39
         },
         {
           "videoId": "dqEzADy3k3Q",
           "title": "Spring Confession",
           "artist": "Baek A",
-          "views": 8663,
+          "views": 8893,
           "lengthSeconds": 147,
           "published": "2026-09-08",
-          "delta7d": 4279,
-          "growth7d": 97.6
+          "delta7d": 3929,
+          "growth7d": 79.15
+        },
+        {
+          "videoId": "5mESl85XgyI",
+          "title": "11월 11일 (November 11th)",
+          "artist": "Stray Kids",
+          "views": 1826067,
+          "lengthSeconds": 186,
+          "published": "2026-09-09",
+          "delta7d": 749699,
+          "growth7d": 69.65
+        },
+        {
+          "videoId": "xn-yrC2_ph8",
+          "title": "Dear",
+          "artist": "D.O.",
+          "views": 1085661,
+          "lengthSeconds": 211,
+          "published": "2026-09-08",
+          "delta7d": 399488,
+          "growth7d": 58.22
         }
       ],
       "top_artists": [
         {
           "name": "homezone",
-          "tracks": 7,
-          "views": 10993731
+          "tracks": 8,
+          "views": 11017607
         },
         {
           "name": "Crush",
           "tracks": 5,
-          "views": 48222617
+          "views": 48254517
         },
         {
           "name": "PL",
           "tracks": 4,
-          "views": 15131398
-        },
-        {
-          "name": "dori",
-          "tracks": 3,
-          "views": 34782585
-        },
-        {
-          "name": "HAAN",
-          "tracks": 3,
-          "views": 873046
+          "views": 15134824
         },
         {
           "name": "Kim Siwon",
-          "tracks": 3,
-          "views": 211376
-        },
-        {
-          "name": "Stray Kids",
-          "tracks": 3,
-          "views": 9604497
+          "tracks": 4,
+          "views": 286369
         },
         {
           "name": "J.BASS",
           "tracks": 3,
-          "views": 3893480
+          "views": 3897856
         },
         {
-          "name": "Moonlight Garden",
-          "tracks": 2,
-          "views": 1523468
+          "name": "HAAN",
+          "tracks": 3,
+          "views": 876156
         },
         {
-          "name": "Forrest Rose",
+          "name": "Stray Kids",
+          "tracks": 3,
+          "views": 9693089
+        },
+        {
+          "name": "veanii",
+          "tracks": 3,
+          "views": 1153681
+        },
+        {
+          "name": "g0nny",
           "tracks": 2,
-          "views": 1263827
+          "views": 432964
+        },
+        {
+          "name": "IHWAK",
+          "tracks": 2,
+          "views": 4142426
         }
       ],
       "years": {
         "2018": 2,
         "2019": 1,
         "2020": 2,
-        "2021": 3,
-        "2022": 10,
-        "2023": 25,
-        "2024": 23,
-        "2025": 24,
-        "2026": 43
+        "2021": 4,
+        "2022": 11,
+        "2023": 26,
+        "2024": 22,
+        "2025": 25,
+        "2026": 44
       }
     },
     {
@@ -265,18 +265,18 @@
       "name": "Mr. Low: Cozy Indie Pop & Mellow Vibes",
       "tracks": 63,
       "counted": 63,
-      "total_views": 1450458433,
-      "avg_views": 23023149,
-      "median_views": 1471742,
-      "max_views": 508311242,
+      "total_views": 1452330967,
+      "avg_views": 23052872,
+      "median_views": 1474402,
+      "max_views": 508613429,
       "avg_length_sec": 181,
-      "total_delta7d": 12710659,
+      "total_delta7d": 12711788,
       "top_by_views": [
         {
           "videoId": "-SaUrDhp034",
           "title": "Every Breath You Take",
           "artist": "The Police",
-          "views": 508311242,
+          "views": 508613429,
           "lengthSeconds": 254,
           "published": "2019-04-15"
         },
@@ -284,7 +284,7 @@
           "videoId": "cYT325Fe9zU",
           "title": "Freaks",
           "artist": "Surf Curse",
-          "views": 299057097,
+          "views": 299277458,
           "lengthSeconds": 147,
           "published": "2021-05-14"
         },
@@ -292,7 +292,7 @@
           "videoId": "HJstyRBLqBQ",
           "title": "I Thought I Saw Your Face Today",
           "artist": "She & Him",
-          "views": 115268836,
+          "views": 115591304,
           "lengthSeconds": 170,
           "published": "2025-09-10"
         },
@@ -300,7 +300,7 @@
           "videoId": "22VOzqS_9ms",
           "title": "Falling (Original Song: Harry Styles) by JK of BTS",
           "artist": "BTS",
-          "views": 104040904,
+          "views": 104070029,
           "lengthSeconds": 237,
           "published": "2021-10-28"
         },
@@ -308,7 +308,7 @@
           "videoId": "Sk-oVcEL-OA",
           "title": "Dancing with my phone",
           "artist": "HYBS",
-          "views": 58396415,
+          "views": 58417097,
           "lengthSeconds": 204,
           "published": "2021-11-24"
         },
@@ -316,7 +316,7 @@
           "videoId": "GaZLVPmViTg",
           "title": "welcome and goodbye",
           "artist": "Dream, Ivory",
-          "views": 58127631,
+          "views": 58214032,
           "lengthSeconds": 141,
           "published": "2022-10-02"
         },
@@ -324,7 +324,7 @@
           "videoId": "hzO05Nb4_Hg",
           "title": "Disco",
           "artist": "Surf Curse",
-          "views": 43351239,
+          "views": 43397347,
           "lengthSeconds": 153,
           "published": "2021-06-29"
         },
@@ -332,7 +332,7 @@
           "videoId": "T0Ry1m0Blug",
           "title": "Harvey",
           "artist": "Her's",
-          "views": 42184370,
+          "views": 42305943,
           "lengthSeconds": 211,
           "published": "2018-07-05"
         },
@@ -340,7 +340,7 @@
           "videoId": "QT1Da26s-UA",
           "title": "Sunsets With You",
           "artist": "Cliff, Yden",
-          "views": 38864746,
+          "views": 38874434,
           "lengthSeconds": 254,
           "published": "2022-07-17"
         },
@@ -348,7 +348,7 @@
           "videoId": "-eQcHcINM2M",
           "title": "愛は勝つ - Aiwa Katsu",
           "artist": "Kan",
-          "views": 31858910,
+          "views": 31885122,
           "lengthSeconds": 248,
           "published": "2018-10-28"
         }
@@ -358,153 +358,153 @@
           "videoId": "lQka7bNFVMg",
           "title": "You’ll Always Be Mine",
           "artist": "Will Swinton",
-          "views": 1358682,
+          "views": 1389402,
           "lengthSeconds": 142,
           "published": "2026-08-27",
-          "delta7d": 227586,
-          "growth7d": 20.12
-        },
-        {
-          "videoId": "Q1GwSHHoMJA",
-          "title": "Back and Forth",
-          "artist": "Pencil Legs",
-          "views": 108201,
-          "lengthSeconds": 95,
-          "published": "2026-08-20",
-          "delta7d": 13638,
-          "growth7d": 14.42
+          "delta7d": 219425,
+          "growth7d": 18.75
         },
         {
           "videoId": "F2PsSZKweTc",
           "title": "What If I Call",
           "artist": "Alex Crichton",
-          "views": 7904043,
+          "views": 8030399,
           "lengthSeconds": 160,
           "published": "2026-07-30",
-          "delta7d": 961003,
-          "growth7d": 13.84
-        },
-        {
-          "videoId": "0viMwE2e4mU",
-          "title": "Scenario",
-          "artist": "ONEWE",
-          "views": 212220,
-          "lengthSeconds": 223,
-          "published": "2026-08-19",
-          "delta7d": 20809,
-          "growth7d": 10.87
-        },
-        {
-          "videoId": "xQaczlnMqfA",
-          "title": "Midnight Wires",
-          "artist": "Oliver Wells, Emily Rivers, Đặng Duy Hiền",
-          "views": 1343221,
-          "lengthSeconds": 197,
-          "published": "2026-06-26",
-          "delta7d": 112885,
-          "growth7d": 9.18
-        },
-        {
-          "videoId": "rIn8gkb14xY",
-          "title": "it’s like i’m not even here",
-          "artist": "mthu",
-          "views": 8649581,
-          "lengthSeconds": 98,
-          "published": "2026-05-26",
-          "delta7d": 702277,
-          "growth7d": 8.84
+          "delta7d": 952245,
+          "growth7d": 13.45
         },
         {
           "videoId": "p6lYtXDS26g",
           "title": "Last Call",
           "artist": "Vacations",
-          "views": 324127,
+          "views": 340532,
           "lengthSeconds": 95,
           "published": "2026-08-20",
-          "delta7d": 22263,
-          "growth7d": 7.38
+          "delta7d": 38668,
+          "growth7d": 12.81
+        },
+        {
+          "videoId": "Q1GwSHHoMJA",
+          "title": "Back and Forth",
+          "artist": "Pencil Legs",
+          "views": 109363,
+          "lengthSeconds": 95,
+          "published": "2026-08-20",
+          "delta7d": 12213,
+          "growth7d": 12.57
+        },
+        {
+          "videoId": "0viMwE2e4mU",
+          "title": "Scenario",
+          "artist": "ONEWE",
+          "views": 214976,
+          "lengthSeconds": 223,
+          "published": "2026-08-19",
+          "delta7d": 20530,
+          "growth7d": 10.56
+        },
+        {
+          "videoId": "rIn8gkb14xY",
+          "title": "it’s like i’m not even here",
+          "artist": "mthu",
+          "views": 8739728,
+          "lengthSeconds": 98,
+          "published": "2026-05-26",
+          "delta7d": 681698,
+          "growth7d": 8.46
+        },
+        {
+          "videoId": "xQaczlnMqfA",
+          "title": "Midnight Wires",
+          "artist": "Oliver Wells, Emily Rivers, Đặng Duy Hiền",
+          "views": 1355705,
+          "lengthSeconds": 197,
+          "published": "2026-06-26",
+          "delta7d": 104628,
+          "growth7d": 8.36
         },
         {
           "videoId": "JntPGNh-6kI",
           "title": "Your Lips Are My Cigarette",
           "artist": "cursedcry",
-          "views": 7234533,
+          "views": 7301760,
           "lengthSeconds": 101,
           "published": "2026-01-17",
-          "delta7d": 475281,
-          "growth7d": 7.03
+          "delta7d": 474630,
+          "growth7d": 6.95
         },
         {
           "videoId": "3NvP42jU3mU",
           "title": "GLOW",
           "artist": "tbh",
-          "views": 456295,
+          "views": 460199,
           "lengthSeconds": 135,
           "published": "2026-06-25",
-          "delta7d": 25863,
-          "growth7d": 6.01
+          "delta7d": 26204,
+          "growth7d": 6.04
         },
         {
-          "videoId": "nX2_1Pc-COM",
-          "title": "Fell Again",
-          "artist": "Cikho",
-          "views": 1329846,
-          "lengthSeconds": 162,
-          "published": "2026-06-10",
-          "delta7d": 72759,
-          "growth7d": 5.79
+          "videoId": "quCSDgvaD8s",
+          "title": "Beauty Was Made for You",
+          "artist": "LOWERCASE committee",
+          "views": 23254,
+          "lengthSeconds": 188,
+          "published": "2026-08-11",
+          "delta7d": 1230,
+          "growth7d": 5.58
         }
       ],
       "top_artists": [
         {
           "name": "Surf Curse",
           "tracks": 2,
-          "views": 342408336
+          "views": 342674805
         },
         {
           "name": "The Worst Taste",
           "tracks": 1,
-          "views": 667970
+          "views": 669714
         },
         {
           "name": "Sports",
           "tracks": 1,
-          "views": 14669061
+          "views": 14697205
         },
         {
           "name": "Magnus Ferrell",
           "tracks": 1,
-          "views": 2319647
+          "views": 2332774
         },
         {
           "name": "November Ultra",
           "tracks": 1,
-          "views": 845557
+          "views": 847637
         },
         {
           "name": "Teddy Bushara",
           "tracks": 1,
-          "views": 2296497
+          "views": 2303706
         },
         {
           "name": "HYBS",
           "tracks": 1,
-          "views": 58396415
+          "views": 58417097
         },
         {
           "name": "Rec Hall",
           "tracks": 1,
-          "views": 222545
+          "views": 222918
         },
         {
           "name": "She & Him",
           "tracks": 1,
-          "views": 115268836
+          "views": 115591304
         },
         {
           "name": "Mustard Service",
           "tracks": 1,
-          "views": 287707
+          "views": 288623
         }
       ],
       "years": {
@@ -523,9 +523,9 @@
     }
   ],
   "totals": {
-    "tracks": 197,
-    "total_views": 1987454594,
-    "total_delta7d": 21555847
+    "tracks": 200,
+    "total_views": 1984388520,
+    "total_delta7d": 20966198
   },
   "chart": [
     {
@@ -702,7 +702,12 @@
       "date": "2026-09-18",
       "slow": 536996161,
       "low": 1450458433
+    },
+    {
+      "date": "2026-09-19",
+      "slow": 532057553,
+      "low": 1452330967
     }
   ],
-  "history_days": 35
+  "history_days": 36
 }
