@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-07T16:24:42",
+  "generated_at": "2026-11-08T16:10:55",
   "lines": [
     {
       "key": "slow",
       "name": "Mr. Slow: Late Night K-Indie & Chill R&B",
       "tracks": 200,
       "counted": 200,
-      "total_views": 718927064,
-      "avg_views": 3594635,
-      "median_views": 475527,
-      "max_views": 180396205,
+      "total_views": 703540104,
+      "avg_views": 3517700,
+      "median_views": 451661,
+      "max_views": 180491945,
       "avg_length_sec": 184,
-      "total_delta7d": 13013002,
+      "total_delta7d": 12634077,
       "top_by_views": [
         {
           "videoId": "8yXGI3kcLsw",
           "title": "Supernatural",
           "artist": "NewJeans",
-          "views": 180396205,
+          "views": 180491945,
           "lengthSeconds": 191,
           "published": "2024-06-20"
         },
@@ -25,7 +25,7 @@
           "videoId": "LP0lRsckX1A",
           "title": "인사",
           "artist": "범진(BUMJIN)",
-          "views": 124320664,
+          "views": 124396656,
           "lengthSeconds": 216,
           "published": "2023-08-07"
         },
@@ -33,7 +33,7 @@
           "videoId": "QT1Da26s-UA",
           "title": "Sunsets With You",
           "artist": "Cliff, Yden",
-          "views": 39377601,
+          "views": 39383672,
           "lengthSeconds": 254,
           "published": "2022-07-17"
         },
@@ -41,7 +41,7 @@
           "videoId": "-_r_Y5nuHlo",
           "title": "1:05",
           "artist": "The Black Skirts",
-          "views": 38559455,
+          "views": 38597789,
           "lengthSeconds": 240,
           "published": "2021-01-18"
         },
@@ -49,7 +49,7 @@
           "videoId": "E5BLkMGxDgQ",
           "title": "Forever Has Always Been",
           "artist": "Redoor",
-          "views": 34476621,
+          "views": 34558090,
           "lengthSeconds": 237,
           "published": "2024-02-29"
         },
@@ -57,7 +57,7 @@
           "videoId": "NOlIxr8ygcI",
           "title": "Love over hip hop, money over love (feat. Basick)",
           "artist": "noahjooda",
-          "views": 29407689,
+          "views": 29430470,
           "lengthSeconds": 234,
           "published": "2022-03-13"
         },
@@ -65,7 +65,7 @@
           "videoId": "t6VgxIIHsqk",
           "title": "when we first met",
           "artist": "TOIL, Gist",
-          "views": 24928879,
+          "views": 24937068,
           "lengthSeconds": 201,
           "published": "2022-11-27"
         },
@@ -73,7 +73,7 @@
           "videoId": "c9HvbzvcAJE",
           "title": "Everlasting",
           "artist": "N.Flying",
-          "views": 17954927,
+          "views": 17970743,
           "lengthSeconds": 257,
           "published": "2025-05-28"
         },
@@ -81,7 +81,7 @@
           "videoId": "WG6czZu01mw",
           "title": "The Star",
           "artist": "dori",
-          "views": 17748566,
+          "views": 17754002,
           "lengthSeconds": 216,
           "published": "2023-03-29"
         },
@@ -89,7 +89,7 @@
           "videoId": "r0ArFI0CXr8",
           "title": "Promise",
           "artist": "Wonstein",
-          "views": 11263562,
+          "views": 11280573,
           "lengthSeconds": 188,
           "published": "2026-01-16"
         }
@@ -99,153 +99,153 @@
           "videoId": "j78k1gbFAWw",
           "title": "You're the end of my day",
           "artist": "ONSEEON",
-          "views": 2184,
+          "views": 2463,
           "lengthSeconds": 186,
           "published": "2026-10-31",
-          "delta7d": 2143,
-          "growth7d": 5226.83
+          "delta7d": 2422,
+          "growth7d": 5907.32
         },
         {
           "videoId": "j78k1gbFAWw",
           "title": "You're the end of my day",
           "artist": "ONSEEON",
-          "views": 2184,
+          "views": 2431,
           "lengthSeconds": 186,
           "published": "2026-10-31",
-          "delta7d": 2143,
-          "growth7d": 5226.83
+          "delta7d": 2390,
+          "growth7d": 5829.27
         },
         {
           "videoId": "YdVuopt8foo",
           "title": "pado.",
           "artist": "floryy",
-          "views": 23367,
+          "views": 25935,
           "lengthSeconds": 240,
           "published": "2026-10-30",
-          "delta7d": 21950,
-          "growth7d": 1549.05
-        },
-        {
-          "videoId": "h8JV2rw7QOc",
-          "title": "Love °C",
-          "artist": "Blin",
-          "views": 109451,
-          "lengthSeconds": 189,
-          "published": "2026-07-29",
-          "delta7d": 89680,
-          "growth7d": 453.59
+          "delta7d": 24518,
+          "growth7d": 1730.28
         },
         {
           "videoId": "a7OfUB1ZtS0",
           "title": "Exit of Farewell",
           "artist": "ONSEEON",
-          "views": 1792,
+          "views": 2136,
           "lengthSeconds": 183,
           "published": "2026-10-31",
-          "delta7d": 1408,
-          "growth7d": 366.67
+          "delta7d": 1752,
+          "growth7d": 456.25
         },
         {
           "videoId": "Qm6q2WES9rg",
           "title": "Fool",
           "artist": "DaNTe′",
-          "views": 760769,
+          "views": 842102,
           "lengthSeconds": 144,
           "published": "2026-10-23",
-          "delta7d": 586475,
-          "growth7d": 336.49
+          "delta7d": 667808,
+          "growth7d": 383.15
         },
         {
           "videoId": "haF_TI9-olE",
           "title": "Falling leaves (feat. Lewyn)",
           "artist": "entoy",
-          "views": 233754,
+          "views": 254235,
           "lengthSeconds": 173,
           "published": "2026-10-30",
-          "delta7d": 170637,
-          "growth7d": 270.35
+          "delta7d": 191118,
+          "growth7d": 302.8
+        },
+        {
+          "videoId": "XpXoh0EJUVw",
+          "title": "A to Z (feat. Gist & Kid Wine)",
+          "artist": "GRIO",
+          "views": 14935,
+          "lengthSeconds": 170,
+          "published": "2026-11-06",
+          "delta7d": 11048,
+          "growth7d": 284.23
         },
         {
           "videoId": "A12plHIaXMk",
           "title": "Every Fleeting Moment",
           "artist": "Jeoung iun",
-          "views": 598958,
+          "views": 646049,
           "lengthSeconds": 208,
           "published": "2026-10-26",
-          "delta7d": 426916,
-          "growth7d": 248.15
+          "delta7d": 474007,
+          "growth7d": 275.52
+        },
+        {
+          "videoId": "h8JV2rw7QOc",
+          "title": "Love °C",
+          "artist": "Blin",
+          "views": 119485,
+          "lengthSeconds": 189,
+          "published": "2026-07-29",
+          "delta7d": 86188,
+          "growth7d": 258.85
         },
         {
           "videoId": "H3y5-JwFySo",
           "title": "이런 여유 너무 좋고 (feat. 오춘기)",
           "artist": "741project",
-          "views": 752939,
+          "views": 830687,
           "lengthSeconds": 149,
           "published": "2026-09-20",
-          "delta7d": 410134,
-          "growth7d": 119.64
-        },
-        {
-          "videoId": "V_kzqTam8lQ",
-          "title": "Finest Thing",
-          "artist": "RESCENE",
-          "views": 2239579,
-          "lengthSeconds": 140,
-          "published": "2026-11-03",
-          "delta7d": 1141452,
-          "growth7d": 103.95
+          "delta7d": 487882,
+          "growth7d": 142.32
         }
       ],
       "top_artists": [
         {
           "name": "Jae Woo AN",
           "tracks": 6,
-          "views": 1363600
+          "views": 1365770
         },
         {
           "name": "Gist",
           "tracks": 5,
-          "views": 26644933
-        },
-        {
-          "name": "HAAN",
-          "tracks": 5,
-          "views": 3042372
+          "views": 26658106
         },
         {
           "name": "Ourealgoat",
           "tracks": 5,
-          "views": 877227
+          "views": 877958
         },
         {
-          "name": "Kim Siwon",
-          "tracks": 4,
-          "views": 542246
-        },
-        {
-          "name": "ONSEEON",
-          "tracks": 4,
-          "views": 20316
+          "name": "HAAN",
+          "tracks": 5,
+          "views": 3045059
         },
         {
           "name": "Jehwwn",
           "tracks": 4,
-          "views": 1964575
+          "views": 1966199
         },
         {
-          "name": "homezone",
-          "tracks": 3,
-          "views": 2018233
+          "name": "ONSEEON",
+          "tracks": 4,
+          "views": 23457
         },
         {
-          "name": "Crush",
+          "name": "Kim Siwon",
+          "tracks": 4,
+          "views": 544627
+        },
+        {
+          "name": "안재우",
           "tracks": 3,
-          "views": 5928176
+          "views": 4128819
         },
         {
           "name": "RESCENE",
           "tracks": 3,
-          "views": 4831953
+          "views": 5323029
+        },
+        {
+          "name": "Cosmic Boy",
+          "tracks": 3,
+          "views": 16359981
         }
       ],
       "years": {
@@ -253,10 +253,10 @@
         "2020": 2,
         "2021": 6,
         "2022": 12,
-        "2023": 30,
-        "2024": 30,
-        "2025": 29,
-        "2026": 89
+        "2023": 31,
+        "2024": 28,
+        "2025": 27,
+        "2026": 92
       }
     },
     {
@@ -264,18 +264,18 @@
       "name": "Mr. Raw: Alternative Rock, Grunge & Indie Classic",
       "tracks": 149,
       "counted": 149,
-      "total_views": 3862215445,
-      "avg_views": 25920909,
-      "median_views": 1850547,
-      "max_views": 347709187,
+      "total_views": 3866468818,
+      "avg_views": 25949455,
+      "median_views": 1852938,
+      "max_views": 347874111,
       "avg_length_sec": 197,
-      "total_delta7d": 31548070,
+      "total_delta7d": 29333791,
       "top_by_views": [
         {
           "videoId": "YBdyc1WDlBQ",
           "title": "Livin' On A Prayer",
           "artist": "Bon Jovi",
-          "views": 347709187,
+          "views": 347874111,
           "lengthSeconds": 249,
           "published": "2018-08-07"
         },
@@ -283,7 +283,7 @@
           "videoId": "B6GdsRIbTSk",
           "title": "What's Up?",
           "artist": "4 Non Blondes",
-          "views": 342658948,
+          "views": 342811501,
           "lengthSeconds": 296,
           "published": "2018-12-12"
         },
@@ -291,7 +291,7 @@
           "videoId": "9vWNauaZAgg",
           "title": "Back In Black",
           "artist": "AC/DC",
-          "views": 320557726,
+          "views": 320664637,
           "lengthSeconds": 255,
           "published": "2018-10-25"
         },
@@ -299,7 +299,7 @@
           "videoId": "k7kzc3Nof08",
           "title": "I Love You So",
           "artist": "The Walters",
-          "views": 209437493,
+          "views": 209618135,
           "lengthSeconds": 160,
           "published": "2021-10-20"
         },
@@ -307,7 +307,7 @@
           "videoId": "UnuEzP1rDLY",
           "title": "Babydoll",
           "artist": "Dominic Fike",
-          "views": 196408318,
+          "views": 196784992,
           "lengthSeconds": 98,
           "published": "2018-10-14"
         },
@@ -315,7 +315,7 @@
           "videoId": "ulRXvH8VOl8",
           "title": "Wake Me up When September Ends",
           "artist": "Green Day",
-          "views": 183535921,
+          "views": 183608640,
           "lengthSeconds": 286,
           "published": "2015-08-28"
         },
@@ -323,7 +323,7 @@
           "videoId": "tpYdGgzCW-M",
           "title": "Scar Tissue",
           "artist": "Red Hot Chili Peppers",
-          "views": 173836281,
+          "views": 173943966,
           "lengthSeconds": 216,
           "published": "2015-08-07"
         },
@@ -331,7 +331,7 @@
           "videoId": "5_PBNZXlzp0",
           "title": "All The Small Things",
           "artist": "blink-182",
-          "views": 140833073,
+          "views": 140940267,
           "lengthSeconds": 167,
           "published": "2018-09-09"
         },
@@ -339,7 +339,7 @@
           "videoId": "iGbPR36zGx4",
           "title": "Wherever You Will Go",
           "artist": "The Calling",
-          "views": 123215558,
+          "views": 123294595,
           "lengthSeconds": 209,
           "published": "2015-09-23"
         },
@@ -347,7 +347,7 @@
           "videoId": "rubpIfLPzvU",
           "title": "The Middle",
           "artist": "Jimmy Eat World",
-          "views": 122912427,
+          "views": 123001538,
           "lengthSeconds": 166,
           "published": "2019-01-31"
         }
@@ -357,153 +357,153 @@
           "videoId": "PP3xW118Luc",
           "title": "Take On",
           "artist": "jisokuryClub",
-          "views": 27537,
+          "views": 32277,
           "lengthSeconds": 199,
           "published": "2026-10-31",
-          "delta7d": 27478,
-          "growth7d": 46572.88
-        },
-        {
-          "videoId": "uoN6EdsSRuo",
-          "title": "Ego",
-          "artist": "chandol",
-          "views": 102834,
-          "lengthSeconds": 247,
-          "published": "2026-10-28",
-          "delta7d": 80543,
-          "growth7d": 361.33
+          "delta7d": 32218,
+          "growth7d": 54606.78
         },
         {
           "videoId": "v5QGJ6138cg",
           "title": "Kids Return",
           "artist": "ADOY",
-          "views": 69995,
+          "views": 72161,
           "lengthSeconds": 267,
           "published": "2026-10-29",
-          "delta7d": 41626,
-          "growth7d": 146.73
+          "delta7d": 43792,
+          "growth7d": 154.37
+        },
+        {
+          "videoId": "uoN6EdsSRuo",
+          "title": "Ego",
+          "artist": "chandol",
+          "views": 107630,
+          "lengthSeconds": 247,
+          "published": "2026-10-28",
+          "delta7d": 56101,
+          "growth7d": 108.87
         },
         {
           "videoId": "21qFPc6eIU8",
           "title": "Paper Thin Walls",
           "artist": "Forrest Rose",
-          "views": 1262611,
+          "views": 1333750,
           "lengthSeconds": 184,
           "published": "2026-10-21",
-          "delta7d": 747570,
-          "growth7d": 145.15
-        },
-        {
-          "videoId": "yJJjOrv5Kqo",
-          "title": "October Again",
-          "artist": "Cherry Logic",
-          "views": 135706,
-          "lengthSeconds": 168,
-          "published": "2026-08-23",
-          "delta7d": 67209,
-          "growth7d": 98.12
-        },
-        {
-          "videoId": "da2w2dLpKX8",
-          "title": "october",
-          "artist": "your warm arms",
-          "views": 593374,
-          "lengthSeconds": 81,
-          "published": "2026-10-08",
-          "delta7d": 283829,
-          "growth7d": 91.69
-        },
-        {
-          "videoId": "hrgcTSibrEc",
-          "title": "hold me in your arms",
-          "artist": "Blood Nose",
-          "views": 3349979,
-          "lengthSeconds": 80,
-          "published": "2026-09-08",
-          "delta7d": 1440746,
-          "growth7d": 75.46
-        },
-        {
-          "videoId": "AVl9TQB7tmc",
-          "title": "Handcuffed to the Steering Wheel",
-          "artist": "Omnihell",
-          "views": 71354,
-          "lengthSeconds": 148,
-          "published": "2026-10-12",
-          "delta7d": 29025,
-          "growth7d": 68.57
+          "delta7d": 630690,
+          "growth7d": 89.71
         },
         {
           "videoId": "0A81CLJx4RE",
           "title": "Soulmates (Shadow)",
           "artist": "Golden Cats",
-          "views": 244447,
+          "views": 259369,
           "lengthSeconds": 162,
           "published": "2026-10-29",
-          "delta7d": 98327,
-          "growth7d": 67.29
+          "delta7d": 113249,
+          "growth7d": 77.5
+        },
+        {
+          "videoId": "yJJjOrv5Kqo",
+          "title": "October Again",
+          "artist": "Cherry Logic",
+          "views": 142031,
+          "lengthSeconds": 168,
+          "published": "2026-08-23",
+          "delta7d": 59570,
+          "growth7d": 72.24
+        },
+        {
+          "videoId": "da2w2dLpKX8",
+          "title": "october",
+          "artist": "your warm arms",
+          "views": 633326,
+          "lengthSeconds": 81,
+          "published": "2026-10-08",
+          "delta7d": 260889,
+          "growth7d": 70.05
         },
         {
           "videoId": "JA8rjFSHJS0",
           "title": "Spinning Out",
           "artist": "Passion Mango",
-          "views": 940775,
+          "views": 993551,
           "lengthSeconds": 104,
           "published": "2026-10-21",
-          "delta7d": 345333,
-          "growth7d": 58.0
+          "delta7d": 398109,
+          "growth7d": 66.86
+        },
+        {
+          "videoId": "hrgcTSibrEc",
+          "title": "hold me in your arms",
+          "artist": "Blood Nose",
+          "views": 3539748,
+          "lengthSeconds": 80,
+          "published": "2026-09-08",
+          "delta7d": 1327363,
+          "growth7d": 60.0
+        },
+        {
+          "videoId": "AVl9TQB7tmc",
+          "title": "Handcuffed to the Steering Wheel",
+          "artist": "Omnihell",
+          "views": 74474,
+          "lengthSeconds": 148,
+          "published": "2026-10-12",
+          "delta7d": 27068,
+          "growth7d": 57.1
         }
       ],
       "top_artists": [
         {
           "name": "The Strokes",
           "tracks": 6,
-          "views": 132640897
+          "views": 132697188
         },
         {
           "name": "Foo Fighters",
           "tracks": 4,
-          "views": 79086660
+          "views": 79150356
         },
         {
           "name": "ADOY",
           "tracks": 3,
-          "views": 115844
+          "views": 119894
         },
         {
           "name": "Delorians",
           "tracks": 2,
-          "views": 439052
+          "views": 448838
         },
         {
           "name": "Jet",
           "tracks": 2,
-          "views": 26274658
+          "views": 26314193
         },
         {
           "name": "Radiohead",
           "tracks": 2,
-          "views": 110141536
+          "views": 110237824
         },
         {
           "name": "Green Day",
           "tracks": 2,
-          "views": 259344417
+          "views": 259500798
         },
         {
           "name": "Greg Shilling",
           "tracks": 2,
-          "views": 1839215
+          "views": 1842958
         },
         {
           "name": "blink-182",
           "tracks": 2,
-          "views": 218007111
+          "views": 218166345
         },
         {
           "name": "Keane",
           "tracks": 2,
-          "views": 98946835
+          "views": 99011306
         }
       ],
       "years": {
@@ -527,18 +527,18 @@
       "name": "Mr. Low: Deep Focus — Classical, Ambient & Synth Instrumentals",
       "tracks": 92,
       "counted": 92,
-      "total_views": 113715588,
-      "avg_views": 1236039,
-      "median_views": 346533,
-      "max_views": 13691707,
+      "total_views": 114059911,
+      "avg_views": 1239781,
+      "median_views": 351618,
+      "max_views": 13700898,
       "avg_length_sec": 148,
-      "total_delta7d": 2599239,
+      "total_delta7d": 2384245,
       "top_by_views": [
         {
           "videoId": "lulmfoic__0",
           "title": "Mia & Sebastian's Theme (arr. for Piano)",
           "artist": "Leiki Ueda",
-          "views": 13691707,
+          "views": 13700898,
           "lengthSeconds": 217,
           "published": "2022-03-15"
         },
@@ -546,7 +546,7 @@
           "videoId": "16N4OjhjZAE",
           "title": "Stuff We Did",
           "artist": "Michael Giacchino",
-          "views": 8042882,
+          "views": 8047030,
           "lengthSeconds": 133,
           "published": "2018-07-23"
         },
@@ -554,7 +554,7 @@
           "videoId": "P7GUkYg1BAo",
           "title": "(dream)",
           "artist": "salvia palth",
-          "views": 7855572,
+          "views": 7878409,
           "lengthSeconds": 85,
           "published": "2024-03-25"
         },
@@ -562,7 +562,7 @@
           "videoId": "31IpgnLkk0w",
           "title": "Beanie - Piano Version",
           "artist": "Penguin Piano",
-          "views": 7167008,
+          "views": 7187730,
           "lengthSeconds": 86,
           "published": "2025-01-14"
         },
@@ -570,7 +570,7 @@
           "videoId": "34V3Fj1Bcy4",
           "title": "190311-01",
           "artist": "Hideyuki Hashimoto",
-          "views": 5863083,
+          "views": 5865500,
           "lengthSeconds": 183,
           "published": "2024-02-28"
         },
@@ -578,7 +578,7 @@
           "videoId": "-ZleCZAeINY",
           "title": "One Summer's Day (from 'Spirited Away')",
           "artist": "Joe Hisaishi, London Symphony Orchestra",
-          "views": 4702655,
+          "views": 4708231,
           "lengthSeconds": 244,
           "published": "2022-08-11"
         },
@@ -586,7 +586,7 @@
           "videoId": "fsDZqNLBfNo",
           "title": "Rue des trois frères",
           "artist": "Fabrizio Paterlini",
-          "views": 3975238,
+          "views": 3992213,
           "lengthSeconds": 111,
           "published": "2017-02-20"
         },
@@ -594,7 +594,7 @@
           "videoId": "zRleH-RtK6I",
           "title": "Debussy: Préludes / Book 1, L. 117: VIII. La fille aux cheveux de lin",
           "artist": "Menahem Pressler, Claude Debussy",
-          "views": 3920777,
+          "views": 3922965,
           "lengthSeconds": 195,
           "published": "2019-01-08"
         },
@@ -602,7 +602,7 @@
           "videoId": "1wS7UQqJ1Qc",
           "title": "Bach: Solo Cello Suite No. 1 in G Major (BWV 1007)---Prelude",
           "artist": "Charles Curtis",
-          "views": 3585886,
+          "views": 3590381,
           "lengthSeconds": 168,
           "published": "2025-03-28"
         },
@@ -610,163 +610,163 @@
           "videoId": "TE92X1iDy8I",
           "title": "Little Life",
           "artist": "Robert Gromotka",
-          "views": 3354046,
+          "views": 3356265,
           "lengthSeconds": 149,
           "published": "2025-04-03"
         }
       ],
       "top_by_growth": [
         {
-          "videoId": "RER4vMCA77I",
-          "title": "À Paris le 30 décembre",
-          "artist": "Luca minor",
-          "views": 336372,
-          "lengthSeconds": 134,
-          "published": "2023-12-06",
-          "delta7d": 103563,
-          "growth7d": 44.48
-        },
-        {
           "videoId": "D6_euMJ2Na8",
           "title": "comfort chain (ambient version)",
           "artist": "Icy, unveil",
-          "views": 155370,
+          "views": 164824,
           "lengthSeconds": 76,
           "published": "2026-01-01",
-          "delta7d": 39400,
-          "growth7d": 33.97
+          "delta7d": 48854,
+          "growth7d": 42.13
+        },
+        {
+          "videoId": "RER4vMCA77I",
+          "title": "À Paris le 30 décembre",
+          "artist": "Luca minor",
+          "views": 350349,
+          "lengthSeconds": 134,
+          "published": "2023-12-06",
+          "delta7d": 97228,
+          "growth7d": 38.41
         },
         {
           "videoId": "3VlRv-IInuw",
           "title": "Duskglow",
           "artist": "Oscar Kowalski",
-          "views": 73871,
+          "views": 75503,
           "lengthSeconds": 96,
           "published": "2026-09-10",
-          "delta7d": 14729,
-          "growth7d": 24.9
-        },
-        {
-          "videoId": "Vjbuf_oNaqs",
-          "title": "the last time you fell into my arms",
-          "artist": "GAKHED",
-          "views": 49261,
-          "lengthSeconds": 88,
-          "published": "2026-09-20",
-          "delta7d": 9039,
-          "growth7d": 22.47
+          "delta7d": 13105,
+          "growth7d": 21.0
         },
         {
           "videoId": "QSqVRNWGlKI",
           "title": "Mrs Magic (orchestral-version)",
           "artist": "JST",
-          "views": 732216,
+          "views": 751331,
           "lengthSeconds": 203,
           "published": "2026-07-06",
-          "delta7d": 132539,
-          "growth7d": 22.1
+          "delta7d": 126022,
+          "growth7d": 20.15
         },
         {
           "videoId": "By4ANjISKn0",
           "title": "Sometimes You Forget",
           "artist": "Other Nothing",
-          "views": 713870,
+          "views": 734108,
           "lengthSeconds": 64,
           "published": "2022-10-02",
-          "delta7d": 124392,
-          "growth7d": 21.1
+          "delta7d": 120469,
+          "growth7d": 19.63
+        },
+        {
+          "videoId": "Vjbuf_oNaqs",
+          "title": "the last time you fell into my arms",
+          "artist": "GAKHED",
+          "views": 50390,
+          "lengthSeconds": 88,
+          "published": "2026-09-20",
+          "delta7d": 7743,
+          "growth7d": 18.16
         },
         {
           "videoId": "T36PKuSaG7Y",
           "title": "Golden Era",
           "artist": "OctoSound",
-          "views": 332205,
+          "views": 337166,
           "lengthSeconds": 98,
           "published": "2025-07-22",
-          "delta7d": 50642,
-          "growth7d": 17.99
-        },
-        {
-          "videoId": "5yPsHlrJoYg",
-          "title": "Floating in Reverie",
-          "artist": "Moayad Aljabal",
-          "views": 1186145,
-          "lengthSeconds": 106,
-          "published": "2026-07-23",
-          "delta7d": 116806,
-          "growth7d": 10.92
+          "delta7d": 44247,
+          "growth7d": 15.11
         },
         {
           "videoId": "Q8fGZ0Dr3Ko",
           "title": "Chopin: 24 Preludes, Op. 28: No. 4 in E Minor. Largo",
           "artist": "Alice Sara Ott, Frédéric Chopin",
-          "views": 116536,
+          "views": 118072,
           "lengthSeconds": 134,
           "published": "2021-07-29",
-          "delta7d": 11386,
-          "growth7d": 10.83
+          "delta7d": 10107,
+          "growth7d": 9.36
         },
         {
-          "videoId": "zxnA0j4ASQ8",
-          "title": "love story",
-          "artist": "Helder Boutens",
-          "views": 450725,
-          "lengthSeconds": 94,
-          "published": "2025-08-19",
-          "delta7d": 38123,
-          "growth7d": 9.24
+          "videoId": "5yPsHlrJoYg",
+          "title": "Floating in Reverie",
+          "artist": "Moayad Aljabal",
+          "views": 1199586,
+          "lengthSeconds": 106,
+          "published": "2026-07-23",
+          "delta7d": 102334,
+          "growth7d": 9.33
+        },
+        {
+          "videoId": "BM5GRws55KI",
+          "title": "Schubert: 6つのドイツ舞曲 D.820: 第5番 変ロ長調 - Schubert: 6 German Dances, D. 820: No. 5 in B-Flat Major",
+          "artist": "Mitsuko Uchida, Franz Schubert",
+          "views": 40949,
+          "lengthSeconds": 85,
+          "published": "2018-07-30",
+          "delta7d": 3440,
+          "growth7d": 9.17
         }
       ],
       "top_artists": [
         {
           "name": "Frédéric Chopin",
           "tracks": 4,
-          "views": 771754
+          "views": 776332
         },
         {
           "name": "Ólafur Arnalds",
           "tracks": 4,
-          "views": 1240516
+          "views": 1241014
         },
         {
           "name": "Joe Hisaishi",
           "tracks": 3,
-          "views": 6084933
+          "views": 6095533
         },
         {
           "name": "Håvard Gimse",
           "tracks": 2,
-          "views": 1013627
+          "views": 1023220
         },
         {
           "name": "Jean Sibelius",
           "tracks": 2,
-          "views": 1013627
+          "views": 1023220
         },
         {
           "name": "George Winston",
           "tracks": 2,
-          "views": 108089
+          "views": 108405
         },
         {
           "name": "Claude Debussy",
           "tracks": 2,
-          "views": 4205425
+          "views": 4207929
         },
         {
           "name": "Nils Frahm",
           "tracks": 2,
-          "views": 1686748
+          "views": 1687256
         },
         {
           "name": "James Quinn",
           "tracks": 2,
-          "views": 2789501
+          "views": 2805524
         },
         {
           "name": "Johann Sebastian Bach",
           "tracks": 2,
-          "views": 535578
+          "views": 535797
         }
       ],
       "years": {
@@ -787,8 +787,8 @@
   ],
   "totals": {
     "tracks": 441,
-    "total_views": 4694858097,
-    "total_delta7d": 47160311
+    "total_views": 4684068833,
+    "total_delta7d": 44352113
   },
   "chart": [
     {
@@ -882,7 +882,13 @@
       "slow": 718927064,
       "raw": 3862215445,
       "low": 113715588
+    },
+    {
+      "date": "2026-11-08",
+      "slow": 703540104,
+      "raw": 3866468818,
+      "low": 114059911
     }
   ],
-  "history_days": 16
+  "history_days": 17
 }
